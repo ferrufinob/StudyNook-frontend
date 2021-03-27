@@ -1,20 +1,44 @@
 body {
-  background-color: #dddddd;
+  background-color: #9ba4b4;
 }
 
 /* #container {
 } */
 
+/* Header */
+header {
+  height: 100px;
+  width: 100%;
+  top: 0;
+  left: 0;
+  right: 0;
+  position: fixed;
+  align-items: center;
+  text-align: center;
+  font-weight: bold;
+  background-color: #394867;
+  color: #f1f6f9;
+}
+
+/* DECK */
 .deck {
   float: left;
-  height: 75px;
+  height: 100px;
   width: 20%;
   padding: 0 10px;
   margin-top: 200px;
   margin-left: 25px;
   text-align: center;
-  color: #1d4d4f;
-  border: #6ba8a9 solid 1px;
-  border-radius: 20px;
-  background-color: #f7f6e7;
+  color: #394867;
+  border: #f1f1f1 solid 1px;
+  border-radius: 15px;
+  background-color: #f1f6f9;
+}
+
+/* Responsiveness*/
+
+@media screen and (max-width: 601px) {
+  .deck h3 {
+    font-size: 12px;
+  }
 }
