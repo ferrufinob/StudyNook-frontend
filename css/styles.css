@@ -2,9 +2,9 @@ body {
   background-color: #9ba4b4;
 }
 
-/* #container {
-} */
-
+#container {
+  color: red;
+}
 /* Header */
 header {
   height: 100px;
@@ -13,11 +13,10 @@ header {
   left: 0;
   right: 0;
   position: fixed;
-  align-items: center;
   text-align: center;
   font-weight: bold;
   background-color: #394867;
-  color: #f1f6f9;
+  color: #e8e8e8;
 }
 
 /* DECK */
@@ -32,13 +31,16 @@ header {
   color: #394867;
   border: #f1f1f1 solid 1px;
   border-radius: 15px;
-  background-color: #f1f6f9;
+  background-color: #e8e8e8;
 }
 
 /* Responsiveness*/
 
 @media screen and (max-width: 601px) {
   .deck h3 {
-    font-size: 12px;
+    font-size: 1rem;
+  }
+  .deck {
+    width: 30%;
   }
 }

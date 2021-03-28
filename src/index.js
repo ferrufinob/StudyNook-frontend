@@ -1,7 +1,14 @@
-const baseURL = "http://localhost:3000/api/v1/decks";
 const container = document.querySelector("#container");
-const api = new ApiService();
+const DeckApi = new ApiService("http://localhost:3000/api/v1/decks");
 
-api.getAllDecks().then((deckData) => {
+DeckApi.getAllDecks().then((deckData) => {
   renderDecks(deckData);
+});
+
+container.addEventListener("click", (e) => {
+  console.log("clicked");
+  if (e.target.classList.contains("deck")) {
+    container.innerHTML = "";
+    //get all cards belonging to this category
+  }
 });
