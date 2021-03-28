@@ -1,10 +1,15 @@
-function renderDecks(decks) {
-  decks.data.map((deck) => {
-    container.insertAdjacentHTML(
-      "beforeend",
-      `
-        <div class="deck" data-id=${deck.id}><h3>${deck.attributes.name}</h3></div>
-        `
-    );
-  });
+class Deck {
+  static all = [];
+  constructor({ id, name }) {
+    this.id = id;
+    this.name = name;
+    this.renderDeck();
+    this.constructor.all.push(this);
+  }
+
+  renderDeck() {
+    container.innerHTML += `
+        <div class="deck" data-id=${this.id}><h3>${this.name}</h3></div>
+        `;
+  }
 }
