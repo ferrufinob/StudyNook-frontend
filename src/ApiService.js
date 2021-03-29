@@ -10,25 +10,11 @@ class ApiService {
       });
   };
 
-  getAllCards(id) {
+  getAllCards = (id) => {
     fetch(`${this.url}`)
       .then((res) => res.json())
       .then((cards) => {
-        cards.data.map((card) => {
-          let newCard = new Card({ id: card.id, ...card.attributes });
-          newCard.testing();
-        });
+        cards.data.map((card) => new Card({ id: card.id, ...card.attributes }));
       });
-  }
-
-  // static getAllCards(id) {
-  //   fetch(`http://localhost:3000/api/v1/decks/${id}/cards`)
-  //     .then((res) => res.json())
-  //     .then((cards) => {
-  //       cards.data.map((card) => {
-  //         let newCard = new Card({ id: card.id, ...card.attributes });
-  //         Card.testing(newCard);
-  //       });
-  //     });
-  // }
+  };
 }

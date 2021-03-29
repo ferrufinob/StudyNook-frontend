@@ -5,31 +5,21 @@ class Card {
     this.back = back;
     this.id = `card-${id}`;
     this.deckId = deck_id;
-    // this.testing();
     this.constructor.all.push(this);
   }
 
-  // static getAllCards(id) {
-  //   fetch(`http://localhost:3000/api/v1/decks/${id}/cards`)
-  //     .then((res) => res.json())
-  //     .then((cards) => {
-  //       cards.data.map((card) => {
-  //         let newCard = new Card({ id: card.id, ...card.attributes });
-  //         newCard.testing();
-  //       });
-  //     });
-  // }
+  renderCard() {
+    const cardDiv = document.createElement("div");
+    cardDiv.classList.add("card");
+    cardDiv.dataset.id = this.id;
+    cardDiv.innerHTML = this.renderInnerHTML();
+    cardContainer.append(cardDiv);
+  }
 
-  testing() {
-    cardContainer.innerHTML += `
-    <div deckset=deck-${this.deckId} class="card">
+  renderInnerHTML() {
+    return `
     <h4>${this.front}</h4>
     <h4>${this.back}</h4>
-    </div>
     `;
-    console.log(this);
-    return cardContainer;
   }
 }
-
-//deck.id = card.deck_id

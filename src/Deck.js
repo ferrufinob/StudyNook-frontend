@@ -5,7 +5,6 @@ class Deck {
     this.name = name;
     this.cardCount = card_count;
     this.renderDeck();
-    // this.deck.addEventListener("click", this.handleClick);
     this.constructor.all.push(this);
   }
 
@@ -13,7 +12,6 @@ class Deck {
     const deckDiv = document.createElement("div");
     deckDiv.classList.add("deck");
     deckDiv.dataset.id = `deck-${this.id}`;
-    deckDiv.dataset.filter = `${this.name}`;
     deckDiv.innerHTML = this.renderInnerHTML();
     deckContainer.append(deckDiv);
     deckDiv.addEventListener("click", this.handleClick);
@@ -30,16 +28,9 @@ class Deck {
   handleClick = () => {
     // deckContainer.style.display = "none";
     console.log("clicked");
-    // Card.getAllCards(this.id);
     Card.all.filter((card) => {
       if (card.deckId == this.id) {
-        console.log(
-          "Card id:" + card.id,
-          "Deck:" + card.deckId,
-          "This:" + this.id,
-          "Card Front:" + card.front
-        );
-        card.testing();
+        card.renderCard();
       }
     });
   };
