@@ -4,17 +4,21 @@ class Deck {
     this.id = id;
     this.name = name;
     this.cardCount = card_count;
-    this.deck = this.createDeck();
-    this.deck.addEventListener("click", this.handleClick);
-    // console.log(this);
+    this.renderDeck();
+    // this.deck.addEventListener("click", this.handleClick);
     this.constructor.all.push(this);
   }
 
-  handleClick = (e) => {
-    console.log(e.target);
-    // when card gets clicked on render all its cards
-    // deck.renderCards(e.id)????
-  };
+  renderDeck() {
+    const deckDiv = document.createElement("div");
+    deckDiv.classList.add("deck");
+    deckDiv.dataset.id = `deck-${this.id}`;
+    deckDiv.dataset.filter = `${this.name}`;
+    deckDiv.innerHTML = this.renderInnerHTML();
+    deckContainer.append(deckDiv);
+    deckDiv.addEventListener("click", this.handleClick);
+    return deckDiv;
+  }
 
   renderInnerHTML() {
     return `
@@ -23,12 +27,20 @@ class Deck {
         `;
   }
 
-  createDeck() {
-    const deck = document.createElement("div");
-    deck.className = "deck";
-    deck.dataset.id = this.id;
-    deck.innerHTML = this.renderInnerHTML();
-    container.append(deck);
-    return deck;
-  }
+  handleClick = () => {
+    // deckContainer.style.display = "none";
+    console.log("clicked");
+    // Card.getAllCards(this.id);
+    Card.all.filter((card) => {
+      if (card.deckId == this.id) {
+        console.log(
+          "Card id:" + card.id,
+          "Deck:" + card.deckId,
+          "This:" + this.id,
+          "Card Front:" + card.front
+        );
+        card.testing();
+      }
+    });
+  };
 }

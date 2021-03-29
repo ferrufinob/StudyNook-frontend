@@ -1,9 +1,7 @@
-const container = document.querySelector("#container");
+const deckContainer = document.querySelector("#deckContainer");
+const cardContainer = document.querySelector("#cardContainer");
 const deckApi = new ApiService("http://localhost:3000/api/v1");
-const cardApi = new ApiService("http://localhost:3000/api/v1/decks");
+const cardApi = new ApiService("http://localhost:3000/api/v1/cards");
 
-deckApi
-  .getAllDecks()
-  .then((decks) =>
-    decks.data.map((deck) => new Deck({ id: deck.id, ...deck.attributes }))
-  );
+deckApi.getAllDecks();
+cardApi.getAllCards();
