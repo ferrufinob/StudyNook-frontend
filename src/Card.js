@@ -12,6 +12,7 @@ class Card {
     const cardDiv = document.createElement("div");
     cardDiv.classList.add("card");
     cardDiv.dataset.id = this.id;
+    cardDiv.id = `deck-${this.deckId}`;
     cardDiv.innerHTML = this.renderInnerHTML();
     cardContainer.append(cardDiv);
   }

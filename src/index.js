@@ -3,5 +3,7 @@ const cardContainer = document.querySelector("#cardContainer");
 const deckApi = new ApiService("http://localhost:3000/api/v1");
 const cardApi = new ApiService("http://localhost:3000/api/v1/cards");
 
-deckApi.getAllDecks();
-cardApi.getAllCards();
+document.addEventListener("DOMContentLoaded", () => {
+  deckApi.getAllDecks();
+  cardApi.getAllCards();
+});

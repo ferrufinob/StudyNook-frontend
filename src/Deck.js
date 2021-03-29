@@ -25,7 +25,6 @@ class Deck {
   }
 
   handleClick = () => {
-    // deckContainer.style.display = "none";
     console.log("clicked");
     Card.all.filter((card) => {
       if (card.deckId == this.id) {
