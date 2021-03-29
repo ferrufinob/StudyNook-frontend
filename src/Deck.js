@@ -15,7 +15,6 @@ class Deck {
     deckDiv.innerHTML = this.renderInnerHTML();
     deckContainer.append(deckDiv);
     deckDiv.addEventListener("click", this.handleClick);
-    return deckDiv;
   }
 
   renderInnerHTML() {
@@ -30,7 +29,12 @@ class Deck {
     console.log("clicked");
     Card.all.filter((card) => {
       if (card.deckId == this.id) {
+        cardContainer.innerHTML = "";
         card.renderCard();
+      } else if (this.cardCount === 0) {
+        cardContainer.innerHTML = `
+        <h2>No Cards in this Deck</h2>
+        `;
       }
     });
   };
