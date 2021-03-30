@@ -19,6 +19,8 @@ class Card {
 
   renderInnerHTML() {
     return `
+    <button class="edit-btn"><i class="fas fa-edit"></i></button>
+    <button class="delete-btn"><i class="fas fa-times"></i></button>
     <h4>${this.front}</h4>
     <h4>${this.back}</h4>
     `;

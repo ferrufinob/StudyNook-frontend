@@ -21,6 +21,7 @@ addCardBtn.addEventListener("click", () => {
     cardForm.style.display = "none";
   }
 });
+
 // });
 
 // goal: make a form constructor that will deal with the form later

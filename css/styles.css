@@ -132,6 +132,14 @@ input[type="submit"] {
   width: 348px;
   height: 80px;
 }
+
+/* Edit & Delete Buttons */
+.edit-btn,
+.delete-btn {
+  position: relative;
+  bottom: -19px;
+  right: -162px;
+}
 /* Responsiveness*/
 
 @media screen and (max-width: 680px) {
