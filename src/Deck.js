@@ -27,16 +27,13 @@ class Deck {
 
   // goal: separate filter into its own function
   handleClick = () => {
-    console.log("clicked");
-    Card.all.filter((card) => {
-      if (card.deckId == this.id) {
-        cardContainer.innerHTML = "";
-        card.renderCard();
-      } else if (this.cardCount === 0) {
-        cardContainer.innerHTML = `
-        <h2>No Cards in this Deck</h2>
-        `;
-      }
-    });
+    console.log("clicked " + this.name);
+    if (this.cardCount === 0) {
+      cardContainer.innerHTML = `<p>Currently no Cards to Display for ${this.name}</p>`;
+    } else {
+      cardContainer.innerHTML = "";
+      let filteredCards = Card.all.filter((card) => card.deckId == this.id);
+      filteredCards.map((card) => card.renderCard());
+    }
   };
 }

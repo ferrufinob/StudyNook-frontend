@@ -19,9 +19,9 @@
       <div class="container-2">
         <form action="">
           <label for="front">Question</label> <br />
-          <input type="text" name="front" id="front" /> <br />
+          <textarea name="front" id="front"></textarea> <br />
           <label for="back">Answer</label> <br />
-          <input type="text" name="back" id="back" /> <br />
+          <textarea name="back" id="back"></textarea> <br />
           <label for="card-deck">Deck Name:</label> <br />
           <select name="deck" id="deck">
             <option name="deck_id" value="1">Ruby</option>
@@ -33,12 +33,8 @@
           <input type="submit" value="Create" />
         </form>
       </div>
-      <div class="fixed-width">
-        <div id="deckContainer"></div>
-      </div>
-      <div class="fixed-width">
-        <div id="cardContainer"></div>
-      </div>
+      <div id="deckContainer"></div>
+      <div id="cardContainer"></div>
     </div>
 
     <script type="text/javascript" src="src/Deck.js"></script>
