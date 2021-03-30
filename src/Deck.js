@@ -14,6 +14,7 @@ class Deck {
     deckDiv.dataset.id = `deck-${this.id}`;
     deckDiv.innerHTML = this.renderInnerHTML();
     deckContainer.append(deckDiv);
+    // goal: should i make an separate addEventListener function for this?
     deckDiv.addEventListener("click", this.handleClick);
   }
 
@@ -24,6 +25,7 @@ class Deck {
         `;
   }
 
+  // goal: separate filter into its own function
   handleClick = () => {
     console.log("clicked");
     Card.all.filter((card) => {

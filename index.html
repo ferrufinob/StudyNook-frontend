@@ -12,12 +12,33 @@
       <h1>StudyNook</h1>
       <p>FlashCards for Developers</p>
     </header>
-
-    <div class="fixed-width">
-      <div id="deckContainer"></div>
-    </div>
-    <div class="fixed-width">
-      <div id="cardContainer"></div>
+    <div class="main-container">
+      <div class="container-1">
+        <button class="add-card-btn">Add Card</button>
+      </div>
+      <div class="container-2">
+        <form action="">
+          <label for="front">Question</label> <br />
+          <input type="text" name="front" id="front" /> <br />
+          <label for="back">Answer</label> <br />
+          <input type="text" name="back" id="back" /> <br />
+          <label for="card-deck">Deck Name:</label> <br />
+          <select name="deck" id="deck">
+            <option name="deck_id" value="1">Ruby</option>
+            <option name="deckId" value="2">Rails</option>
+            <option name="deck_id" value="3">JavaScript</option>
+            <option name="deck_id" value="4">Computer Science</option>
+          </select>
+          <br />
+          <input type="submit" value="Create" />
+        </form>
+      </div>
+      <div class="fixed-width">
+        <div id="deckContainer"></div>
+      </div>
+      <div class="fixed-width">
+        <div id="cardContainer"></div>
+      </div>
     </div>
 
     <script type="text/javascript" src="src/Deck.js"></script>

@@ -7,3 +7,5 @@ document.addEventListener("DOMContentLoaded", () => {
   deckApi.getAllDecks();
   cardApi.getAllCards();
 });
+
+// goal: make a form constructor that will deal with the form later

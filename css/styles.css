@@ -74,6 +74,9 @@ header {
   background-color: red;
 } */
 
+.main-container {
+  margin-top: 300px;
+}
 /*Cards*/
 
 /* Responsiveness*/
