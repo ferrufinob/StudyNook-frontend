@@ -3,7 +3,7 @@ class Deck {
   constructor({ id, name, card_count }) {
     this.id = id;
     this.name = name;
-    this.cardCount = card_count;
+    this.card_count = card_count;
     this.renderDeck();
     this.constructor.all.push(this);
   }
@@ -21,18 +21,18 @@ class Deck {
   renderInnerHTML() {
     return `
         <h3>${this.name}</h3>
-        <p>${this.cardCount} terms</p>
+        <p>${this.card_count} terms</p>
         `;
   }
 
   // goal: separate filter into its own function
   handleClick = () => {
     console.log("clicked " + this.name);
-    if (this.cardCount === 0) {
+    if (this.card_count === 0) {
       cardContainer.innerHTML = `<p>Currently no Cards to Display for ${this.name}</p>`;
     } else {
       cardContainer.innerHTML = "";
-      let filteredCards = Card.all.filter((card) => card.deckId == this.id);
+      let filteredCards = Card.all.filter((card) => card.deck_id == this.id);
       filteredCards.map((card) => card.renderCard());
     }
   };

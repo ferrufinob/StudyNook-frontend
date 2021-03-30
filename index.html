@@ -5,25 +5,35 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="css/styles.css" />
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500&display=swap"
+      rel="stylesheet"
+    />
     <title>StudyNook</title>
   </head>
   <body>
     <header>
       <h1>StudyNook</h1>
-      <p>FlashCards for Developers</p>
     </header>
     <div class="main-container">
       <!-- Add Card BTN -->
       <div class="add-card-div">
-        <button class="add-card-btn">Add Card</button>
+        <p>FlashCards for Developers</p>
+        <button class="add-card-btn">ADD CARD</button>
       </div>
       <!-- Form -->
       <div class="form-container">
         <form action="">
           <label for="front">Question</label> <br />
+          <br />
           <textarea name="front" id="front"></textarea> <br />
+          <br />
           <label for="back">Answer</label> <br />
+          <br />
           <textarea name="back" id="back"></textarea> <br />
+          <br />
           <label for="card-deck">Deck Name:</label> <br />
           <select name="deck" id="deck">
             <option name="deck_id" value="1">Ruby</option>
@@ -32,7 +42,8 @@
             <option name="deck_id" value="4">Computer Science</option>
           </select>
           <br />
-          <input type="submit" value="Create" />
+          <br />
+          <input type="submit" value="CREATE" />
         </form>
       </div>
       <!-- Deck Display -->

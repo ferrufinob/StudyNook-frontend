@@ -1,17 +1,96 @@
 body {
   background-color: #dddddd;
   margin: 0;
+  font-family: "Roboto", sans-serif;
+}
+
+html {
+  scroll-behavior: smooth;
 }
 
 .main-container {
-  border: 1px solid teal;
   width: 94%;
   margin: auto;
   margin-top: 10px;
 }
 
+/* Header */
+
+header {
+  height: 65px;
+  width: 100%;
+  text-align: left;
+  display: table;
+  font-weight: bold;
+  background-color: #f5f5f5;
+  color: #394867;
+}
+
+h1 {
+  padding-left: 20px;
+}
+
+p {
+  color: #394867;
+  font-weight: bold;
+  font-size: 0.9rem;
+}
+/* Deck */
+
+.deck {
+  float: left;
+  height: 100px;
+  width: 15%;
+  padding: 0 10px;
+  margin-top: 10px;
+  /* margin-left: 40px; */
+  /* margin-right: 110px; */
+  margin: 0 auto;
+  text-align: center;
+  word-wrap: break-word;
+  border-radius: 15px;
+  border: #f3f4ed solid 1px;
+  color: #394867;
+  background-color: #f5f5f5;
+  box-shadow: 0 2px 7px #394867;
+}
+
+.deck h3 {
+  font-size: 1.1rem;
+}
+
+.deck:hover {
+  transform: scale(1.1);
+  box-shadow: 0px 0px 10px #f4f9f9;
+}
+
+/*Cards*/
+
+#cardContainer,
+#deckContainer {
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  margin: auto;
+  margin-top: 20px;
+  padding: 0px 10px;
+}
+
+.card {
+  width: 400px;
+  height: 250px;
+  word-wrap: break-word;
+  margin: 10px;
+  background: #fafafa;
+  box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.5);
+  text-align: center;
+  word-spacing: 1.5px;
+}
+
+/* Card Form */
+
 .add-card-div {
-  border: 1px solid yellow;
   text-align: center;
 }
 
@@ -22,85 +101,47 @@ body {
   width: 390px;
   padding: 20px;
   margin-top: 15px;
+  background-color: #425664;
+  color: #fff;
+  font-weight: bold;
+  font-size: 1.1rem;
+}
+
+textarea {
+  background-color: #2d3841;
+  color: #fff;
+  font-size: 1.3rem;
+}
+
+.add-card-btn,
+input[type="submit"] {
+  background-color: #c6ad8f;
+  color: #fff;
+  font-weight: bold;
+  text-align: center;
+  width: fit-content;
+  height: 35px;
+  font-size: 1rem;
 }
 
 #back,
 #front {
-  border: 1px solid #ffab73;
+  border: 1px solid #c6ad8f;
   outline: none;
   border-radius: 5px;
   width: 348px;
   height: 80px;
 }
-/* Header */
-header {
-  height: 100px;
-  width: 100%;
-  top: 0;
-  left: 0;
-  right: 0;
-  text-align: center;
-  display: table;
-  font-weight: bold;
-  background-color: #113c4a;
-  color: #e8e8e8;
-}
-
-/* DECK */
-#deckContainer {
-  margin-top: 10px;
-  display: flex;
-  border: red solid 1px;
-}
-.deck {
-  float: left;
-  height: 100px;
-  width: 20%;
-  padding: 0 10px;
-  margin-top: 10px;
-  margin-left: 40px;
-  text-align: center;
-  color: #394867;
-  border: #f4f4f4 solid 1px;
-  border-radius: 15px;
-  background-color: #fef4e8;
-}
-
-.deck:hover {
-  transform: scale(1.1);
-  box-shadow: 0px 0px 5px #113c4a;
-}
-
-/*Cards*/
-
-#cardContainer {
-  display: flex;
-  justify-content: flex-start;
-  align-items: flex-start;
-  flex-wrap: wrap;
-  width: 100%;
-  margin: auto;
-  margin-top: 10px;
-  padding: 0px 10px;
-  border: blue solid 1px;
-}
-
-.card {
-  width: 400px;
-  height: 250px;
-  word-wrap: break-word;
-  margin: 10px;
-  background: #f3f4ed;
-  box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.5);
-  text-align: center;
-}
 /* Responsiveness*/
 
-@media screen and (max-width: 601px) {
-  .deck h3 {
+@media screen and (max-width: 680px) {
+  /* .deck h3 {
     font-size: 1rem;
-  }
+  } */
   .deck {
-    width: 30%;
+    margin-left: 10px;
+  }
+  .form-container {
+    width: 80%;
   }
 }

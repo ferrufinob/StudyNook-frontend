@@ -4,7 +4,7 @@ class Card {
     this.front = front;
     this.back = back;
     this.id = `card-${id}`;
-    this.deckId = deck_id;
+    this.deck_id = deck_id;
     this.constructor.all.push(this);
   }
 
@@ -12,7 +12,7 @@ class Card {
     const cardDiv = document.createElement("div");
     cardDiv.classList.add("card");
     cardDiv.dataset.id = this.id;
-    cardDiv.id = `deck-${this.deckId}`;
+    cardDiv.id = `deck-${this.deck_id}`;
     cardDiv.innerHTML = this.renderInnerHTML();
     cardContainer.append(cardDiv);
   }
