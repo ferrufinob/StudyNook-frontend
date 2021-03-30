@@ -4,7 +4,7 @@ const deckContainer = document.querySelector("#deckContainer");
 const cardContainer = document.querySelector("#cardContainer");
 const deckApi = new ApiService("http://localhost:3000/api/v1/decks");
 const cardApi = new ApiService("http://localhost:3000/api/v1/cards");
-const cardForm = document.querySelector(".form-container");
+const cardForm = document.querySelector("#card-form");
 const addCardBtn = document.querySelector(".add-card-btn");
 //⬇⬇  This is not good practice , refactor and move to form constructor
 let addCard = false;

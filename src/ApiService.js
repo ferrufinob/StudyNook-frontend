@@ -45,5 +45,6 @@ class ApiService {
         let newCard = new Card(card.data.attributes);
         newCard.renderCard();
       });
+    cardForm.reset();
   };
 }
