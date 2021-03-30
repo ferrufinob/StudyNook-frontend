@@ -4,16 +4,18 @@ body {
 }
 
 .main-container {
+  border: 1px solid teal;
   width: 94%;
   margin: auto;
   margin-top: 10px;
 }
 
-.container-1 {
+.add-card-div {
+  border: 1px solid yellow;
   text-align: center;
 }
 
-.container-2 {
+.form-container {
   border: 1px solid gray;
   margin: auto;
   border-radius: 5px;
@@ -24,7 +26,7 @@ body {
 
 #back,
 #front {
-  border: 1px solid #394867;
+  border: 1px solid #ffab73;
   outline: none;
   border-radius: 5px;
   width: 348px;
