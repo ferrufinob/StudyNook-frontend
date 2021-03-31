@@ -7,6 +7,7 @@ const cardApi = new ApiService("http://localhost:3000/api/v1/cards");
 const cardForm = document.querySelector("#card-form");
 const container = document.querySelector(".form-container");
 const addCardBtn = document.querySelector(".add-card-btn");
+const addCardDiv = document.querySelector(".add-card-div");
 //⬇⬇  This is not good practice , refactor and move to form constructor
 let addCard = false;
 

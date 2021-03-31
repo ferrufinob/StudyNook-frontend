@@ -4,6 +4,7 @@ class Card {
     this.front = front;
     this.back = back;
     this.id = id;
+    this.card = document.createElement("div");
     this.deck_id = deck_id;
     this.constructor.all.push(this);
   }
