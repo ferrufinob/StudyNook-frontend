@@ -20,7 +20,7 @@ class ApiService {
 
   createCard = (e) => {
     e.preventDefault();
-    const deck_id = document.querySelector("#deck").value;
+    const deck_id = e.target.querySelector("#deck_id").value;
     const front = document.querySelector("#front").value;
     const back = document.querySelector("#back").value;
 
@@ -42,26 +42,9 @@ class ApiService {
     fetch(this.url, configCard)
       .then((res) => res.json())
       .then((card) => {
-        let newCard = new Card(card.data.attributes);
+        let newCard = new Card({ id: card.data.id, ...card.data.attributes });
         newCard.renderCard();
       });
     cardForm.reset();
   };
-
-  // sendPatch = (id, card) => {
-  //   let configCard = {
-  //     method: "PATCH",
-  //     headers: {
-  //       "Content-Type": "application/json",
-  //       Accept: "application/json",
-  //     },
-  //     body: JSON.stringify(card),
-  //   };
-
-  //   fetch(`this.url/${id}`)
-  //     .then((res) => res.json())
-  //     .then((card) => {
-  //       console.log(card.data);
-  //     });
-  // };
 }

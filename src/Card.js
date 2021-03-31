@@ -9,14 +9,14 @@ class Card {
     this.constructor.all.push(this);
   }
 
-  renderCard() {
+  renderCard = () => {
     const cardDiv = document.createElement("div");
     cardDiv.classList.add("card");
     cardDiv.dataset.id = this.id;
     cardDiv.id = `deck-${this.deck_id}`;
     cardDiv.innerHTML = this.renderInnerHTML();
     cardContainer.append(cardDiv);
-  }
+  };
 
   renderInnerHTML() {
     return `

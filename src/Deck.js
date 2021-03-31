@@ -27,14 +27,17 @@ class Deck {
 
   // goal: separate filter into its own function
   handleClick = () => {
-    // when user clicks the decks will be hidden
-    // card list will be shown
     // show form, remove dropdown selection and add deck.id to form, add a hidden input field that will be holding this?
     deckContainer.style.display = "none";
     cardContainer.style.display = "flex";
     container.style.display = "block";
     addCardDiv.style.display = "block";
     addCardBtn.style.display = "inline";
+    let hiddenInput = document.createElement("input");
+    hiddenInput.type = "hidden";
+    hiddenInput.value = this.id;
+    hiddenInput.id = "deck_id";
+    cardForm.append(hiddenInput);
     console.log("clicked " + this.name);
     if (this.card_count === 0) {
       cardContainer.innerHTML = `<p>Currently no Cards to Display for ${this.name}</p>`;
