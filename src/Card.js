@@ -3,7 +3,7 @@ class Card {
   constructor({ id, front, back, deck_id }) {
     this.front = front;
     this.back = back;
-    this.id = `card-${id}`;
+    this.id = id;
     this.deck_id = deck_id;
     this.constructor.all.push(this);
   }
@@ -19,10 +19,28 @@ class Card {
 
   renderInnerHTML() {
     return `
-    <button class="edit-btn"><i class="fas fa-edit"></i></button>
-    <button class="delete-btn"><i class="fas fa-times"></i></button>
+    <button class="edit-btn" data-id=${this.id} data-action="edit">edit</i></button>
+    <button class="delete-btn" data-id=${this.id} data-action="delete">delete</button>
     <h4>${this.front}</h4>
     <h4>${this.back}</h4>
     `;
   }
+
+  // static listen = (e) => {
+  //   if (e.target.classList.contains("edit-btn")) {
+  //     console.log(e.target);
+  //     //add(append) a new edit form to the card
+  //     //get the button
+  //     //listen for "submit" of the brand new edit form i just made
+  //     //grab those input values
+  //     // No to full page reload! e.preventDefault()
+  //     //fetch request with a patch
+  //   } else if (e.target.classList.contains("delete-btn")) {
+  //     console.log(e.target);
+  //   } else if (e.target.classList.contains("card")) {
+  //     // listen for flip event
+  //     // remove front text when flipping to back
+  //     console.log(e.target);
+  //   }
+  // };
 }

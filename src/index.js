@@ -21,7 +21,26 @@ addCardBtn.addEventListener("click", () => {
     cardForm.style.display = "none";
   }
 });
+// })
 
-// });
+cardContainer.addEventListener("submit", (e) => {
+  e.preventDefault();
+  console.log(e.target);
+});
+
+cardContainer.addEventListener("click", (e) => {
+  if (e.target.dataset.action === "edit") {
+    // console.log(e.target.parentElement);
+    e.target.innerHTML += `
+    <form id="card-edit-form" method="post">
+    <label for="front">Question:</label>
+    <textarea name="front" value=""></textarea>
+     <label for="back">Answer:</label>
+    <textarea name="back" value=""></textarea>
+    <button class="edit-btn" type="submit">Edit Card</button>
+    </form>
+    `;
+  }
+});
 
 // goal: make a form constructor that will deal with the form later

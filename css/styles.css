@@ -79,7 +79,7 @@ p {
 
 .card {
   width: 400px;
-  height: 250px;
+  height: 360px;
   word-wrap: break-word;
   margin: 10px;
   background: #fafafa;
@@ -136,10 +136,22 @@ input[type="submit"] {
 /* Edit & Delete Buttons */
 .edit-btn,
 .delete-btn {
-  position: relative;
+  /* position: relative;
   bottom: -19px;
-  right: -162px;
+  right: -140px; */
+  /* text-align: center; */
+  background-color: #c6ad8f;
 }
+
+#card-edit-form {
+  width: fit-content;
+  height: fit-content;
+}
+
+/* #card-edit-form {
+  margin: 0 auto;
+  width: fit-content;
+} */
 /* Responsiveness*/
 
 @media screen and (max-width: 680px) {
