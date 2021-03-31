@@ -46,5 +46,6 @@ class ApiService {
         newCard.renderCard();
       });
     cardForm.reset();
+    container.style.display = "none";
   };
 }

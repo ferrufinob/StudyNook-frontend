@@ -30,9 +30,9 @@ class Deck {
     // show form, remove dropdown selection and add deck.id to form, add a hidden input field that will be holding this?
     deckContainer.style.display = "none";
     cardContainer.style.display = "flex";
-    container.style.display = "block";
     addCardDiv.style.display = "block";
     addCardBtn.style.display = "inline";
+    viewDecksBtn.style.display = "inline";
     let hiddenInput = document.createElement("input");
     hiddenInput.type = "hidden";
     hiddenInput.value = this.id;

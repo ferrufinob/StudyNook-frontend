@@ -123,6 +123,7 @@ textarea {
 }
 
 .add-card-btn,
+.view-decks-btn,
 input[type="submit"] {
   background-color: #c6ad8f;
   color: #fff;
@@ -133,6 +134,7 @@ input[type="submit"] {
   font-size: 1rem;
   outline: none;
   border-radius: 5px;
+  margin: 5px;
 }
 
 #back,
