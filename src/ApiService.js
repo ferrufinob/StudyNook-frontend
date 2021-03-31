@@ -47,4 +47,21 @@ class ApiService {
       });
     cardForm.reset();
   };
+
+  // sendPatch = (id, card) => {
+  //   let configCard = {
+  //     method: "PATCH",
+  //     headers: {
+  //       "Content-Type": "application/json",
+  //       Accept: "application/json",
+  //     },
+  //     body: JSON.stringify(card),
+  //   };
+
+  //   fetch(`this.url/${id}`)
+  //     .then((res) => res.json())
+  //     .then((card) => {
+  //       console.log(card.data);
+  //     });
+  // };
 }

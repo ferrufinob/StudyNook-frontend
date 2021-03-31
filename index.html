@@ -21,6 +21,7 @@
 
     <title>StudyNook</title>
   </head>
+
   <body>
     <header>
       <h1>StudyNook</h1>
@@ -31,7 +32,7 @@
         <p>FlashCards for Developers</p>
         <button class="add-card-btn">ADD CARD</button>
       </div>
-      <!-- Form -->
+      <!-- Card Form -->
       <div class="form-container">
         <form id="card-form" action="">
           <label for="front">Question</label> <br />
@@ -45,7 +46,7 @@
           <label for="card-deck">Deck Name:</label> <br />
           <select name="deck" id="deck">
             <option name="deck_id" value="1">Ruby</option>
-            <option name="deckId" value="2">Rails</option>
+            <option name="deck_id" value="2">Rails</option>
             <option name="deck_id" value="3">JavaScript</option>
             <option name="deck_id" value="4">Computer Science</option>
           </select>
@@ -54,9 +55,9 @@
           <input type="submit" value="CREATE" />
         </form>
       </div>
-      <!-- Deck Display -->
+      <!-- All Decks Display -->
       <div id="deckContainer"></div>
-      <!-- Card Display -->
+      <!-- All Cards Display -->
       <div id="cardContainer"></div>
     </div>
 

@@ -30,6 +30,8 @@ class Deck {
     // when user clicks the decks will be hidden
     // card list will be shown
     // show form, remove dropdown selection and add deck.id to form, add a hidden input field that will be holding this?
+    deckContainer.style.display = "none";
+    cardContainer.style.display = "flex";
     console.log("clicked " + this.name);
     if (this.card_count === 0) {
       cardContainer.innerHTML = `<p>Currently no Cards to Display for ${this.name}</p>`;
