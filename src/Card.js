@@ -35,4 +35,13 @@ class Card {
     </div>
     `;
   }
+
+  handleClick() {}
+
+  static cardFormHandler() {
+    addCardBtn.addEventListener("click", () => {
+      formContainer.style.display = "block";
+    });
+    cardForm.addEventListener("submit", cardApi.createCard);
+  }
 }

@@ -5,26 +5,29 @@ const cardContainer = document.querySelector("#cardContainer");
 const deckApi = new ApiService("http://localhost:3000/api/v1/decks");
 const cardApi = new ApiService("http://localhost:3000/api/v1/cards");
 const cardForm = document.querySelector("#card-form");
-const container = document.querySelector(".form-container");
+const formContainer = document.querySelector(".form-container");
+const addCardDiv = document.querySelector(".add-card-div");
 const addCardBtn = document.querySelector(".add-card-btn");
 const viewDecksBtn = document.querySelector(".view-decks-btn");
-const addCardDiv = document.querySelector(".add-card-div");
+
 //⬇⬇  This is not good practice , refactor and move to form constructor
-let addCard = false;
+// let addCard = false;
 
 // document.addEventListener("DOMContentLoaded", () => {
 deckApi.getAllDecks();
 cardApi.getAllCards();
-cardForm.addEventListener("submit", cardApi.createCard);
-addCardBtn.addEventListener("click", () => {
-  addCard = !addCard;
-  if (addCard) {
-    container.style.display = "block";
-  } else {
-    container.style.display = "none";
-  }
-});
+// cardForm.addEventListener("submit", cardApi.createCard);
+// addCardBtn.addEventListener("click", () => {
+//   addCard = !addCard;
+//   if (addCard) {
+//     formContainer.style.display = "block";
+//   } else {
+//     formContainer.style.display = "none";
+//   }
+// });
 // })
+
+Card.cardFormHandler();
 
 cardContainer.addEventListener("submit", (e) => {
   e.preventDefault();

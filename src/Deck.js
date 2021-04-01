@@ -34,6 +34,7 @@ class Deck {
     hiddenInput.type = "hidden";
     hiddenInput.value = this.id;
     hiddenInput.id = "deck_id";
+    cardForm.append(hiddenInput);
     this.filteredDeckCards();
   };
 
