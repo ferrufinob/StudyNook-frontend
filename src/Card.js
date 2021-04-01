@@ -40,11 +40,11 @@ class Card {
   }
 
   // Find a better way to handle this, when I add edit and delete functionality
-  static addEventListeners() {
+  static addEventListeners = () => {
     addCardBtn.addEventListener("click", this.formToggle);
     cardForm.addEventListener("submit", (e) => cardApi.createCard(e));
     viewDecksBtn.addEventListener("click", this.backBtn);
-  }
+  };
 
   static formToggle = () => {
     this.displayForm = !this.displayForm;
@@ -55,11 +55,12 @@ class Card {
     }
   };
 
-  static backBtn() {
-    deckContainer.style.display = "flex";
-    cardContainer.style.display = "none";
+  static backBtn = () => {
+    cardContainer.innerHTML = "";
     addCardDiv.style.display = "none";
     addCardBtn.style.display = "none";
     viewDecksBtn.style.display = "none";
-  }
+    deckContainer.style.display = "flex";
+    // form reset hidden field value or remove?
+  };
 }
