@@ -17,7 +17,6 @@ class Deck {
     deckDiv.innerHTML = this.renderInnerHTML();
     deckContainer.append(deckDiv);
     return deckDiv;
-    // deckDiv.addEventListener("click", this.handleClick);
   }
 
   renderInnerHTML() {

@@ -36,4 +36,19 @@ class Card {
     </div>
     `;
   }
+
+  static addEventListeners() {
+    addCardBtn.addEventListener("click", this.formToggle);
+    cardForm.addEventListener("submit", (e) => cardApi.createCard(e));
+  }
+
+  static formToggle = () => {
+    let displayForm = false;
+    displayForm = !displayForm;
+    if (displayForm) {
+      formContainer.style.display = "block";
+    } else {
+      formContainer.style.display = "none";
+    }
+  };
 }
