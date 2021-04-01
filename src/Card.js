@@ -16,14 +16,21 @@ class Card {
     cardDiv.id = `deck-${this.deck_id}`;
     cardDiv.innerHTML = this.renderInnerHTML();
     cardContainer.append(cardDiv);
+    cardDiv.addEventListener("click", () => {
+      cardDiv.classList.toggle("flipping");
+    });
   };
 
   renderInnerHTML() {
     return `
     <button class="fas fa-times delete-btn" data-id=${this.id} data-action="delete"></button>
     <button class="far fa-edit edit-btn" data-id=${this.id} data-action="edit"></button>
-    <h4 id="front-card">${this.front}</h4>
-    <h4 id="back-card">${this.back}</h4>
+    <div class="card-front">
+    <h4>${this.front}</h4>
+    </div>
+    <div class="card-back">
+    <h4>${this.back}</h4>
+    </div>
     `;
   }
 }
