@@ -1,3 +1,4 @@
+"use strict";
 class Deck {
   static all = [];
   constructor({ id, name, card_count }) {
@@ -9,7 +10,7 @@ class Deck {
     this.constructor.all.push(this);
   }
 
-  renderDeck = () => {
+  renderDeck() {
     const deckDiv = document.createElement("div");
     deckDiv.classList.add("deck");
     deckDiv.dataset.id = `deck-${this.id}`;
@@ -17,14 +18,14 @@ class Deck {
     deckContainer.append(deckDiv);
     return deckDiv;
     // deckDiv.addEventListener("click", this.handleClick);
-  };
+  }
 
-  renderInnerHTML = () => {
+  renderInnerHTML() {
     return `
         <h3>${this.name}</h3>
         <p>${this.card_count} terms</p>
         `;
-  };
+  }
 
   handleClick = () => {
     deckContainer.style.display = "none";

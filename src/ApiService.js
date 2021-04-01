@@ -1,3 +1,4 @@
+"use strict";
 class ApiService {
   constructor(url) {
     this.url = url;

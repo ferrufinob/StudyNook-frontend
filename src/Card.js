@@ -1,3 +1,4 @@
+"use strict";
 class Card {
   static all = [];
   constructor({ id, front, back, deck_id }) {
@@ -8,7 +9,7 @@ class Card {
     this.constructor.all.push(this);
   }
 
-  renderCard = () => {
+  renderCard() {
     const cardDiv = document.createElement("div");
     cardDiv.classList.add("card");
     cardDiv.dataset.id = this.id;
@@ -19,7 +20,7 @@ class Card {
       if (e.target.classList.contains("flip-btn"))
         cardDiv.classList.toggle("flipping");
     });
-  };
+  }
 
   renderInnerHTML() {
     return `
@@ -34,15 +35,5 @@ class Card {
     <p>${this.back}</p>
     </div>
     `;
-  }
-
-  handleClick() {}
-
-  AddCardButton() {}
-  static cardFormHandler() {
-    addCardBtn.addEventListener("click", () => {
-      formContainer.style.display = "block";
-    });
-    cardForm.addEventListener("submit", cardApi.createCard);
   }
 }
