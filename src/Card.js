@@ -38,6 +38,7 @@ class Card {
 
   handleClick() {}
 
+  AddCardButton() {}
   static cardFormHandler() {
     addCardBtn.addEventListener("click", () => {
       formContainer.style.display = "block";

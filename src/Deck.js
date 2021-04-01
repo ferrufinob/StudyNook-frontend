@@ -4,7 +4,8 @@ class Deck {
     this.id = id;
     this.name = name;
     this.card_count = card_count;
-    this.renderDeck();
+    this.deck = this.renderDeck();
+    this.deck.addEventListener("click", this.handleClick);
     this.constructor.all.push(this);
   }
 
@@ -14,7 +15,8 @@ class Deck {
     deckDiv.dataset.id = `deck-${this.id}`;
     deckDiv.innerHTML = this.renderInnerHTML();
     deckContainer.append(deckDiv);
-    deckDiv.addEventListener("click", this.handleClick);
+    return deckDiv;
+    // deckDiv.addEventListener("click", this.handleClick);
   };
 
   renderInnerHTML = () => {
