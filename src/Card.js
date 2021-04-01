@@ -26,14 +26,14 @@ class Card {
 
   renderInnerHTML() {
     return `
-    <button class="fas fa-times delete-btn" data-id=${this.id} data-action="delete"></button>
-    <button class="far fa-edit edit-btn" data-id=${this.id} data-action="edit"></button>
-    <div class="card-front">
+    <button class="fas fa-times deleteBtn" data-id=${this.id} data-action="delete"></button>
+    <button class="far fa-edit editBtn" data-id=${this.id} data-action="edit"></button>
+    <div class="cardFront">
     <button class="flipBtn">FLIP</button>
     <h2>${this.front}</h2>
     </div>
-    <div class="card-back">
-    <button class="flip-btn">FLIP</button>
+    <div class="cardBack">
+    <button class="flipBtn">FLIP</button>
     <p>${this.back}</p>
     </div>
     `;

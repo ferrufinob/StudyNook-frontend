@@ -51,12 +51,12 @@ h4 {
   font-size: 1.3rem;
 }
 
-.card-front h2 {
+.cardFront h2 {
   color: #333a56;
   font-size: 1.8rem;
 }
 
-.card-back p {
+.cardBack p {
   color: #333a56;
   font-size: 1.6rem;
   margin-top: 90px;
@@ -149,8 +149,8 @@ h4 {
 
 /* Card Front and Card Back */
 
-.card .card-front,
-.card .card-back {
+.card .cardFront,
+.card .cardBack {
   position: absolute;
   backface-visibility: hidden;
   width: 100%;
@@ -159,7 +159,7 @@ h4 {
   backface-visibility: hidden;
 }
 
-.card-front {
+.cardFront {
   background: #f9f3f3;
   display: flex;
   align-items: center;
@@ -168,7 +168,7 @@ h4 {
   font-size: 1.4rem;
 }
 
-.card-back {
+.cardBack {
   transform: rotateY(180deg);
   background: #f9f3f3;
   align-items: center;
@@ -229,8 +229,8 @@ input[type="submit"] {
 
 /* Card Edit & Delete Buttons */
 
-.edit-btn,
-.delete-btn {
+.editBtn,
+.deleteBtn {
   background: #edeef7;
   font-size: 1rem;
   outline: none;
