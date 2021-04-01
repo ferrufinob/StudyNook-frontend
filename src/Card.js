@@ -5,6 +5,8 @@ class Card {
     this.front = front;
     this.back = back;
     this.id = id;
+    // this allows for true toggle functionality
+    this.displayForm = false;
     this.deck_id = deck_id;
     this.constructor.all.push(this);
   }
@@ -43,9 +45,8 @@ class Card {
   }
 
   static formToggle = () => {
-    let displayForm = false;
-    displayForm = !displayForm;
-    if (displayForm) {
+    this.displayForm = !this.displayForm;
+    if (this.displayForm) {
       formContainer.style.display = "block";
     } else {
       formContainer.style.display = "none";
