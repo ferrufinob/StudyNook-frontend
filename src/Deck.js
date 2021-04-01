@@ -4,7 +4,7 @@ class Deck {
   constructor({ id, name, card_count }) {
     this.id = id;
     this.name = name;
-    this.card_count = card_count;
+    this.cardCount = card_count;
     this.renderDeck();
     // this.deck.addEventListener("click", this.handleClick);
     this.constructor.all.push(this);
@@ -22,7 +22,7 @@ class Deck {
   renderInnerHTML() {
     return `
         <h3>${this.name}</h3>
-        <p class="card-count">${this.card_count} terms</p>
+        <p class="card-count">${this.cardCount} terms</p>
         `;
   }
 

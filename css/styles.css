@@ -35,12 +35,6 @@ h4 {
   margin-top: 100px;
 }
 
-.form-container p {
-  color: #394867;
-  font-weight: bold;
-  font-size: 1.1rem;
-}
-
 .deck p {
   color: #dfdce3;
   font-weight: bold;
@@ -245,7 +239,7 @@ input[type="submit"] {
 }
 
 /* Edit Card Form */
-
+/* 
 #card-edit-form {
   width: fit-content;
   height: fit-content;
@@ -262,7 +256,7 @@ input[type="submit"] {
   width: 348px;
   height: 80px;
   font-size: 1.3rem;
-}
+} */
 
 /* Responsiveness*/
 
