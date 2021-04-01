@@ -12,5 +12,4 @@ const viewDecksBtn = document.querySelector(".view-decks-btn");
 
 deckApi.getAllDecks();
 cardApi.getAllCards();
-
 Card.addEventListeners();

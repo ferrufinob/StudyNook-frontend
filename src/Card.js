@@ -57,10 +57,11 @@ class Card {
 
   static backBtn = () => {
     cardContainer.innerHTML = "";
+    formContainer.style.display = "none";
     addCardDiv.style.display = "none";
     addCardBtn.style.display = "none";
     viewDecksBtn.style.display = "none";
     deckContainer.style.display = "flex";
-    // form reset hidden field value or remove?
+    document.querySelector("#deck_id").remove();
   };
 }
