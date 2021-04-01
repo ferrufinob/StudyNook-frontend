@@ -35,7 +35,7 @@ class Deck {
     let hiddenInput = document.createElement("input");
     hiddenInput.type = "hidden";
     hiddenInput.value = this.id;
-    hiddenInput.id = "deck_id";
+    hiddenInput.id = "deckId";
     cardForm.append(hiddenInput);
     this.filteredDeckCards();
   };

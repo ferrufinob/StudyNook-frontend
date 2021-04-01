@@ -62,6 +62,6 @@ class Card {
     addCardBtn.style.display = "none";
     viewDecksBtn.style.display = "none";
     deckContainer.style.display = "flex";
-    document.querySelector("#deck_id").remove();
+    document.querySelector("#deckId").remove();
   };
 }

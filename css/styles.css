@@ -5,7 +5,7 @@ body {
   padding-bottom: 50px;
 }
 
-.main-container {
+.mainContainer {
   width: 94%;
   margin: auto;
   margin-top: 10px;
@@ -179,11 +179,11 @@ h4 {
 
 /* Card Form */
 
-.add-card-div {
+.addCardDiv {
   text-align: center;
 }
 
-.form-container {
+.formContainer {
   border: 1px solid gray;
   margin: auto;
   border-radius: 5px;
@@ -202,8 +202,8 @@ textarea {
   font-size: 1.3rem;
 }
 
-.add-card-btn,
-.view-decks-btn,
+.addCardBtn,
+.viewDecksBtn,
 input[type="submit"] {
   background-color: #c6ad8f;
   color: #fff;
@@ -218,8 +218,8 @@ input[type="submit"] {
 }
 
 /* card form textarea */
-#back,
-#front {
+#backInput,
+#frontInput {
   border: 1px solid #c6ad8f;
   outline: none;
   border-radius: 5px;
@@ -271,7 +271,7 @@ input[type="submit"] {
     margin-left: 10px;
     width: fit-content;
   }
-  .form-container {
+  .formContainer {
     width: 80%;
   }
 }

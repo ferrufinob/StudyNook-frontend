@@ -21,9 +21,9 @@ class ApiService {
 
   createCard = (e) => {
     e.preventDefault();
-    const deck_id = document.querySelector("#deck_id").value;
-    const front = document.querySelector("#front").value;
-    const back = document.querySelector("#back").value;
+    const deck_id = document.querySelector("#deckId").value;
+    const front = document.querySelector("#frontInput").value;
+    const back = document.querySelector("#backInput").value;
 
     let newCardObj = {
       front,
