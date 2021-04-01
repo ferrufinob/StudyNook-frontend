@@ -14,7 +14,6 @@ class Deck {
     deckDiv.dataset.id = `deck-${this.id}`;
     deckDiv.innerHTML = this.renderInnerHTML();
     deckContainer.append(deckDiv);
-    // goal: should i make an separate addEventListener function for this?
     deckDiv.addEventListener("click", this.handleClick);
   }
 
@@ -25,9 +24,7 @@ class Deck {
         `;
   }
 
-  // goal: separate filter into its own function
   handleClick = () => {
-    // show form, remove dropdown selection and add deck.id to form, add a hidden input field that will be holding this?
     deckContainer.style.display = "none";
     cardContainer.style.display = "flex";
     addCardDiv.style.display = "block";
@@ -37,12 +34,14 @@ class Deck {
     hiddenInput.type = "hidden";
     hiddenInput.value = this.id;
     hiddenInput.id = "deck_id";
-    cardForm.append(hiddenInput);
-    console.log("clicked " + this.name);
-    if (this.card_count === 0) {
+    this.filteredDeckCards();
+  };
+
+  filteredDeckCards = () => {
+    const totalCards = this.card_count;
+    if (totalCards < 1) {
       cardContainer.innerHTML = `<p>Currently no Cards to Display for ${this.name}</p>`;
     } else {
-      cardContainer.innerHTML = "";
       let filteredCards = Card.all.filter((card) => card.deck_id == this.id);
       filteredCards.map((card) => card.renderCard());
     }

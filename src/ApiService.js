@@ -10,7 +10,7 @@ class ApiService {
       });
   };
 
-  getAllCards = (id) => {
+  getAllCards = () => {
     fetch(this.url)
       .then((res) => res.json())
       .then((cards) => {
