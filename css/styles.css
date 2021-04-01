@@ -1,12 +1,8 @@
 body {
-  background-color: #dddddd;
+  background-color: #e8e8e8;
   margin: 0;
   font-family: "Roboto", sans-serif;
   padding-bottom: 50px;
-}
-
-html {
-  scroll-behavior: smooth;
 }
 
 .main-container {
@@ -23,10 +19,12 @@ header {
   text-align: left;
   display: table;
   font-weight: bold;
-  background-color: #f5f5f5;
-  color: #394867;
+  background-color: #52658f;
+  color: #fff;
   box-shadow: 0 2px 10px #c6ad8f;
 }
+
+/* FONTS  */
 
 h1 {
   padding-left: 20px;
@@ -43,6 +41,22 @@ p {
   font-size: 1.1rem;
 }
 
+.deck h3 {
+  font-size: 1.3rem;
+}
+
+.card-front h2 {
+  color: #333a56;
+  font-size: 1.8rem;
+}
+
+.card-back p {
+  color: #333a56;
+  font-size: 1.6rem;
+  margin-top: 90px;
+  font-weight: 300;
+}
+
 /* Deck Display */
 
 .deck {
@@ -56,18 +70,14 @@ p {
   word-wrap: break-word;
   border-radius: 15px;
   border: #f3f4ed solid 1px;
-  color: #394867;
-  background-color: #f5f5f5;
+  color: #333a56;
+  background-color: #f7f5e6;
   box-shadow: 0 2px 7px #394867;
-}
-
-.deck h3 {
-  font-size: 1.3rem;
 }
 
 .deck:hover {
   transform: scale(1.1);
-  box-shadow: 0px 0px 10px #f4f9f9;
+  box-shadow: 0px 0px 10px #333a56;
 }
 
 /*Cards Display*/
@@ -150,14 +160,14 @@ p {
   display: flex;
   align-items: center;
   justify-content: center;
-}
-
-.card-back {
-  background: #f9f3f3;
+  font-size: 1.4rem;
 }
 
 .card-back {
   transform: rotateY(180deg);
+  background: #f9f3f3;
+  align-items: center;
+  justify-content: center;
 }
 
 /* Card Form */

@@ -27,11 +27,11 @@ class Card {
     <button class="far fa-edit edit-btn" data-id=${this.id} data-action="edit"></button>
     <div class="card-front">
     <button class="flip-btn">FLIP</button>
-    <h4>${this.front}</h4>
+    <h2>${this.front}</h2>
     </div>
     <div class="card-back">
     <button class="flip-btn">FLIP</button>
-    <h4>${this.back}</h4>
+    <p>${this.back}</p>
     </div>
     `;
   }
