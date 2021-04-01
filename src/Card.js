@@ -19,7 +19,7 @@ class Card {
     cardDiv.innerHTML = this.renderInnerHTML();
     cardContainer.append(cardDiv);
     cardDiv.addEventListener("click", (e) => {
-      if (e.target.classList.contains("flip-btn"))
+      if (e.target.classList.contains("flipBtn"))
         cardDiv.classList.toggle("flipping");
     });
   }
@@ -29,7 +29,7 @@ class Card {
     <button class="fas fa-times delete-btn" data-id=${this.id} data-action="delete"></button>
     <button class="far fa-edit edit-btn" data-id=${this.id} data-action="edit"></button>
     <div class="card-front">
-    <button class="flip-btn">FLIP</button>
+    <button class="flipBtn">FLIP</button>
     <h2>${this.front}</h2>
     </div>
     <div class="card-back">

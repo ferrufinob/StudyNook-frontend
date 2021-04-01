@@ -123,7 +123,7 @@ h4 {
 
 /* Flip Button */
 
-.flip-btn {
+.flipBtn {
   transform: translateZ(1px);
   backface-visibility: hidden;
   -webkit-backface-visibility: hidden;
