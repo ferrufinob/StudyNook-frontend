@@ -41,7 +41,7 @@ class Deck {
   };
 
   filteredDeckCards = (e) => {
-    let filteredCards = Card.all.filter((card) => card.deck_id == this.id);
+    let filteredCards = Card.all.filter((card) => card.deckId == this.id);
     filteredCards.map((card) => card.renderCard());
   };
 }

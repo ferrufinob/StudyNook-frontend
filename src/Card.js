@@ -7,7 +7,7 @@ class Card {
     this.id = id;
     // this allows for true toggle functionality
     this.displayForm = false;
-    this.deck_id = deck_id;
+    this.deckId = deck_id;
     this.constructor.all.push(this);
   }
 
@@ -15,7 +15,7 @@ class Card {
     const cardDiv = document.createElement("div");
     cardDiv.classList.add("card");
     cardDiv.dataset.id = this.id;
-    cardDiv.id = `deck-${this.deck_id}`;
+    cardDiv.id = `deck-${this.deckId}`;
     cardDiv.innerHTML = this.renderInnerHTML();
     cardContainer.append(cardDiv);
     cardDiv.addEventListener("click", (e) => {
