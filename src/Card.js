@@ -4,7 +4,6 @@ class Card {
     this.front = front;
     this.back = back;
     this.id = id;
-    this.card = document.createElement("div");
     this.deck_id = deck_id;
     this.constructor.all.push(this);
   }
@@ -16,8 +15,9 @@ class Card {
     cardDiv.id = `deck-${this.deck_id}`;
     cardDiv.innerHTML = this.renderInnerHTML();
     cardContainer.append(cardDiv);
-    cardDiv.addEventListener("click", () => {
-      cardDiv.classList.toggle("flipping");
+    cardDiv.addEventListener("click", (e) => {
+      if (e.target.classList.contains("flip-btn"))
+        cardDiv.classList.toggle("flipping");
     });
   };
 
@@ -26,9 +26,11 @@ class Card {
     <button class="fas fa-times delete-btn" data-id=${this.id} data-action="delete"></button>
     <button class="far fa-edit edit-btn" data-id=${this.id} data-action="edit"></button>
     <div class="card-front">
+    <button class="flip-btn">FLIP</button>
     <h4>${this.front}</h4>
     </div>
     <div class="card-back">
+    <button class="flip-btn">FLIP</button>
     <h4>${this.back}</h4>
     </div>
     `;

@@ -81,7 +81,6 @@ p {
   margin: auto;
   margin-top: 30px;
   padding: 0px 10px;
-  border: aqua 1px solid;
 }
 
 #cardContainer {
@@ -105,7 +104,36 @@ p {
   transition: transform 1s;
   border-radius: 6px;
   cursor: pointer;
+  background-color: #f9f3f3;
 }
+
+/* Flip Button */
+
+.flip-btn {
+  transform: translateZ(1px);
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+  position: absolute;
+  top: 8px;
+  left: 8px;
+  width: 40px;
+  height: 40px;
+  background: white;
+  cursor: pointer;
+  font-family: "Open Sans", sans-serif;
+  font-weight: 600;
+  font-size: 0.7em;
+  padding: 0;
+  color: #394867;
+  border: 1px solid grey;
+}
+
+/* Card flip event triggered */
+.card.flipping {
+  transform: rotateY(180deg);
+}
+
+/* Card Front and Card Back */
 
 .card .card-front,
 .card .card-back {
@@ -132,16 +160,12 @@ p {
   transform: rotateY(180deg);
 }
 
-.card.flipping {
-  transform: rotateY(180deg);
-}
 /* Card Form */
 
 .add-card-div {
   text-align: center;
 }
 
-/* card Form */
 .form-container {
   border: 1px solid gray;
   margin: auto;
@@ -176,6 +200,7 @@ input[type="submit"] {
   margin: 5px;
 }
 
+/* card form textarea */
 #back,
 #front {
   border: 1px solid #c6ad8f;
@@ -199,6 +224,7 @@ input[type="submit"] {
   /* to make sure buttons stay in front and dont flip */
   transform: translateZ(1px);
   backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
 }
 
 /* Edit Card Form */
