@@ -21,6 +21,8 @@ class ApiService {
 
   createCard = (e) => {
     e.preventDefault();
+
+    // does this belong here or can I put it in its own form class
     const deck_id = document.querySelector("#deckId").value;
     const front = document.querySelector("#frontInput").value;
     const back = document.querySelector("#backInput").value;
@@ -43,6 +45,7 @@ class ApiService {
     fetch(this.url, configCard)
       .then((res) => res.json())
       .then((card) => {
+        // might be cleaner to move this into form class method
         let newCard = new Card({ id: card.data.id, ...card.data.attributes });
         newCard.renderCard();
       });
