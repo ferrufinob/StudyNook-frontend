@@ -227,6 +227,7 @@ input[type="submit"] {
 
 .editBtn,
 .deleteBtn {
+  font-size: 1.3em;
   background: #edeef7;
   outline: none;
   border-radius: 5px;

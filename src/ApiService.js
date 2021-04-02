@@ -7,7 +7,10 @@ class ApiService {
     fetch(this.url)
       .then((res) => res.json())
       .then((decks) => {
-        decks.data.map((deck) => new Deck({ id: deck.id, ...deck.attributes }));
+        decks.data.map((deck) => {
+          const allDecks = new Deck({ id: deck.id, ...deck.attributes });
+          allDecks.attachToDom();
+        });
       });
   };
 
@@ -45,11 +48,16 @@ class ApiService {
     fetch(this.url, configCard)
       .then((res) => res.json())
       .then((card) => {
-        // might be cleaner to move this into form class method
-        let newCard = new Card({ id: card.data.id, ...card.data.attributes });
-        newCard.renderCard();
-      });
-    cardForm.reset();
-    formContainer.style.display = "none";
+        if (card.errors) {
+          alert(card.errors);
+        } else {
+          // might be cleaner to move this into form class method
+          let newCard = new Card({ id: card.data.id, ...card.data.attributes });
+          newCard.attachToDom();
+          cardForm.reset();
+          formContainer.style.display = "none";
+        }
+      })
+      .catch((error) => alert(error));
   };
 }

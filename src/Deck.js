@@ -5,11 +5,10 @@ class Deck {
     this.id = id;
     this.name = name;
     this.cardCount = card_count;
-    this.renderDeck();
     this.constructor.all.push(this);
   }
 
-  renderDeck() {
+  attachToDom() {
     const deckDiv = document.createElement("div");
     deckDiv.classList.add("deck");
     deckDiv.dataset.id = `deck-${this.id}`;
@@ -36,11 +35,12 @@ class Deck {
     hiddenInput.value = this.id;
     hiddenInput.id = "deckId";
     cardForm.append(hiddenInput);
-    this.filteredDeckCards();
+    this.filteredCards();
   };
 
-  filteredDeckCards = (e) => {
+  filteredCards = (e) => {
     let filteredCards = Card.all.filter((card) => card.deckId == this.id);
-    filteredCards.map((card) => card.renderCard());
+    // attach to dom only after deck button has been clicked and cards have been filtered.
+    filteredCards.map((card) => card.attachToDom());
   };
 }

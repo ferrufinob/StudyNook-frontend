@@ -9,7 +9,7 @@ class Card {
     this.constructor.all.push(this);
   }
 
-  renderCard() {
+  attachToDom() {
     const cardDiv = document.createElement("div");
     cardDiv.classList.add("card");
     cardDiv.dataset.id = this.id;
@@ -61,4 +61,6 @@ class Card {
       formContainer.style.display = "block";
     }
   };
+
+  // updateCardHandler()
 }
