@@ -37,12 +37,28 @@ class Card {
     `;
   }
 
-  // handleSubmit
-  // create & update(pass an id from function living in CardForm)
+  static addEventListeners() {
+    backBtn.addEventListener("click", this.backBtn);
+    addCardBtn.addEventListener("click", this.cardFormToggler);
+    cardForm.addEventListener("submit", (e) => cardApi.createCard(e));
+  }
 
-  // handleClick
-  //card flip
-  // delete
-  //edit button(doesn't need it, it will onyl display form when clicked on)
-  // cancel button if they don't want to edit card anymore
+  static backBtn() {
+    cardContainer.innerHTML = "";
+    formContainer.style.display = "none";
+    addCardDiv.style.display = "none";
+    addCardBtn.style.display = "none";
+    backBtn.style.display = "none";
+    deckContainer.style.display = "flex";
+    document.querySelector("#deckId").remove();
+  }
+
+  static cardFormToggler = () => {
+    let state = formContainer.style.display;
+    if (state === "block") {
+      formContainer.style.display = "none";
+    } else {
+      formContainer.style.display = "block";
+    }
+  };
 }

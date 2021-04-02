@@ -5,7 +5,6 @@ class Deck {
     this.id = id;
     this.name = name;
     this.cardCount = card_count;
-    // adding event listeners upon creation
     this.renderDeck();
     this.constructor.all.push(this);
   }

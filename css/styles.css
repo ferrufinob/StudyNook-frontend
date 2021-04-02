@@ -115,6 +115,11 @@ label {
   background-color: #f9f3f3;
 }
 
+/* Togglers */
+.hidden {
+  display: none;
+}
+
 /* Flip Button */
 
 .flipBtn {

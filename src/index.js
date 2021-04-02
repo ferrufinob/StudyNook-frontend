@@ -12,14 +12,4 @@ const backBtn = document.querySelector(".viewDecksBtn");
 
 deckApi.getAllDecks();
 cardApi.getAllCards();
-const cardInstance = new CardForm();
-
-backBtn.addEventListener("click", () => {
-  cardContainer.innerHTML = "";
-  formContainer.style.display = "none";
-  addCardDiv.style.display = "none";
-  addCardBtn.style.display = "none";
-  backBtn.style.display = "none";
-  deckContainer.style.display = "flex";
-  document.querySelector("#deckId").remove();
-});
+Card.addEventListeners();
