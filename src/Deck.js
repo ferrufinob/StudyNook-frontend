@@ -5,8 +5,8 @@ class Deck {
     this.id = id;
     this.name = name;
     this.cardCount = card_count;
+    // adding event listeners upon creation
     this.renderDeck();
-    // this.deck.addEventListener("click", this.handleClick);
     this.constructor.all.push(this);
   }
 
@@ -31,7 +31,7 @@ class Deck {
     cardContainer.style.display = "flex";
     addCardDiv.style.display = "block";
     addCardBtn.style.display = "inline";
-    viewDecksBtn.style.display = "inline";
+    backBtn.style.display = "inline";
     let hiddenInput = document.createElement("input");
     hiddenInput.type = "hidden";
     hiddenInput.value = this.id;

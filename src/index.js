@@ -8,8 +8,18 @@ const cardForm = document.querySelector("#cardForm");
 const formContainer = document.querySelector(".formContainer");
 const addCardDiv = document.querySelector(".addCardDiv");
 const addCardBtn = document.querySelector(".addCardBtn");
-const viewDecksBtn = document.querySelector(".viewDecksBtn");
+const backBtn = document.querySelector(".viewDecksBtn");
 
 deckApi.getAllDecks();
 cardApi.getAllCards();
-Card.addEventListeners();
+new CardForm();
+
+backBtn.addEventListener("click", () => {
+  cardContainer.innerHTML = "";
+  formContainer.style.display = "none";
+  addCardDiv.style.display = "none";
+  addCardBtn.style.display = "none";
+  backBtn.style.display = "none";
+  deckContainer.style.display = "flex";
+  document.querySelector("#deckId").remove();
+});

@@ -5,8 +5,6 @@ class Card {
     this.front = front;
     this.back = back;
     this.id = id;
-    // this allows for true toggle functionality
-    this.displayForm = false;
     this.deckId = deck_id;
     this.constructor.all.push(this);
   }
@@ -18,8 +16,6 @@ class Card {
     cardDiv.id = `deck-${this.deckId}`;
     cardDiv.innerHTML = this.renderInnerHTML();
     cardContainer.append(cardDiv);
-    // maybe make this into this.cardDiv
-    // will have to attach, edit button, save button, delete, and flip events to this div
     cardDiv.addEventListener("click", (e) => {
       if (e.target.classList.contains("flipBtn"))
         cardDiv.classList.toggle("flipping");
@@ -41,37 +37,12 @@ class Card {
     `;
   }
 
-  // Find a better way to handle this, when I add edit and delete functionality
-  // would like to make this more readable
-  // if someone were to read this what would they imply from it?
-  static addEventListeners = () => {
-    addCardBtn.addEventListener("click", this.formToggle);
-    cardForm.addEventListener("submit", (e) => cardApi.createCard(e));
-    viewDecksBtn.addEventListener("click", this.backBtn);
-  };
+  // handleSubmit
+  // create & update(pass an id from function living in CardForm)
 
-  // doesn't seem like it needs to be a static method
-  // doesn't seem to belong in this class
-  // look into having a form class that deals with just forms
-  static formToggle = () => {
-    this.displayForm = !this.displayForm;
-    if (this.displayForm) {
-      formContainer.style.display = "block";
-    } else {
-      formContainer.style.display = "none";
-    }
-  };
-
-  // does this need to be a static method?
-  // it doesn't deal with only one deck, it deals with all
-  static backBtn = () => {
-    cardContainer.innerHTML = "";
-    formContainer.style.display = "none";
-    addCardDiv.style.display = "none";
-    addCardBtn.style.display = "none";
-    viewDecksBtn.style.display = "none";
-    deckContainer.style.display = "flex";
-    // clears hidden input to avoid wrong deck id assignment
-    document.querySelector("#deckId").remove();
-  };
+  // handleClick
+  //card flip
+  // delete
+  //edit button(doesn't need it, it will onyl display form when clicked on)
+  // cancel button if they don't want to edit card anymore
 }

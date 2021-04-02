@@ -69,7 +69,7 @@ label {
 .deck {
   float: left;
   height: 150px;
-  width: 21%;
+  width: 30%;
   padding: 0 10px;
   margin-top: 20px;
   margin-left: 60px;
@@ -132,7 +132,7 @@ label {
   font-weight: 600;
   font-size: 0.9em;
   padding: 0;
-  color: #dda199;
+  color: #443f3c;
   border: 1px solid grey;
 }
 
@@ -189,7 +189,6 @@ label {
 
 textarea {
   background-color: #d8d8d8;
-  color: #fff;
   font-size: 2em;
 }
 
@@ -304,6 +303,7 @@ input[type="submit"] {
   #frontInput,
   #backInput {
     width: 100%;
+    height: 100px;
   }
 }
 
