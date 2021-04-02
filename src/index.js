@@ -12,7 +12,7 @@ const backBtn = document.querySelector(".viewDecksBtn");
 
 deckApi.getAllDecks();
 cardApi.getAllCards();
-new CardForm();
+const cardInstance = new CardForm();
 
 backBtn.addEventListener("click", () => {
   cardContainer.innerHTML = "";
