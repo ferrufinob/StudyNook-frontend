@@ -17,8 +17,9 @@ class Card {
     cardDiv.innerHTML = this.renderInnerHTML();
     cardContainer.append(cardDiv);
     cardDiv.addEventListener("click", (e) => {
-      if (e.target.classList.contains("flipBtn"))
+      if (e.target.classList.contains("flipBtn")) {
         cardDiv.classList.toggle("flipping");
+      }
     });
   }
 
@@ -61,5 +62,17 @@ class Card {
     } else {
       formContainer.style.display = "block";
     }
+  };
+
+  static filteredCards = (deck) => {
+    let filteredCards = Card.all.filter((card) => {
+      parseInt(card.deckId) === deck;
+      // console.log(card);
+      console.log(deck, card.deckId);
+      card.attachToDom();
+    });
+
+    // attach to dom only after deck button has been clicked and cards have been filtered.
+    // filteredCards.map((card) => card.attachToDom());
   };
 }

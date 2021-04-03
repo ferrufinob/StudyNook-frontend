@@ -60,6 +60,16 @@ class ApiService {
       .catch((error) => alert(error));
   };
 
+  cardDelete(id) {
+    const bodyData = { id };
+    fetch(`${endPoint}/${id}`, {
+      method: "DELETE",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ bodyData }),
+      //  same as listing down all attributes ie "({title: title, })"
+    }).then((res) => res.json());
+  }
+
   // can use this with create, update and delete
   errorHandler(message, duration) {
     const error = document.createElement("div");
