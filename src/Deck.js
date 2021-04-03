@@ -8,7 +8,7 @@ class Deck {
     this.constructor.all.push(this);
   }
 
-  attachToDom() {
+  attachToDom(num) {
     const deckDiv = document.createElement("div");
     deckDiv.classList.add("deck");
     deckDiv.dataset.id = `deck-${this.id}`;
@@ -20,7 +20,7 @@ class Deck {
   renderInnerHTML() {
     return `
         <h3>${this.name}</h3>
-        <p class="card-count">${this.cardCount} terms</p>
+        <p id="count">${this.cardCount}<p>
         `;
   }
 

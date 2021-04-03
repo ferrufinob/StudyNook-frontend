@@ -26,9 +26,11 @@ header {
 /* error display */
 .error {
   width: 50%;
-  font-size: 1.8em;
+  font-size: 1.9em;
   margin: auto;
+  margin-top: 20px;
   background-color: #f9c4aa;
+  border: #ffe8db 1px solid;
   color: #dd2c00;
 }
 
