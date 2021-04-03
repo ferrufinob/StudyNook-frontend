@@ -25,6 +25,7 @@ class Deck {
   }
 
   handleClick = () => {
+    // is there a cleaner and better way to do this?
     deckContainer.style.display = "none";
     cardContainer.style.display = "flex";
     addCardDiv.style.display = "block";

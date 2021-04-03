@@ -24,8 +24,6 @@ class ApiService {
 
   createCard = (e) => {
     e.preventDefault();
-
-    // does this belong here or can I put it in its own form class
     const deck_id = document.querySelector("#deckId").value;
     const front = document.querySelector("#frontInput").value;
     const back = document.querySelector("#backInput").value;
@@ -49,15 +47,28 @@ class ApiService {
       .then((res) => res.json())
       .then((card) => {
         if (card.errors) {
-          alert(card.errors);
+          // if any errors creating(coming from validations)
+          this.errorHandler(card.errors, 2000);
         } else {
-          // might be cleaner to move this into form class method
           let newCard = new Card({ id: card.data.id, ...card.data.attributes });
           newCard.attachToDom();
           cardForm.reset();
           formContainer.style.display = "none";
         }
       })
+      //if any errors with the fetch request
       .catch((error) => alert(error));
   };
+
+  // can use this with create, update and delete
+  errorHandler(message, duration) {
+    const error = document.createElement("div");
+    error.classList.add("error");
+    error.innerText = `${message}`;
+    addCardDiv.appendChild(error);
+    setTimeout(function () {
+      error.parentNode.removeChild(error);
+    }, duration);
+    addCardDiv.appendChild(error);
+  }
 }

@@ -23,6 +23,15 @@ header {
   box-shadow: 0 0px 3px #393e46;
 }
 
+/* error display */
+.error {
+  width: 50%;
+  font-size: 1.8em;
+  margin: auto;
+  background-color: #f9c4aa;
+  color: #dd2c00;
+}
+
 /* FONTS  */
 
 h1 {

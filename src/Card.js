@@ -45,6 +45,7 @@ class Card {
 
   static backBtn() {
     cardContainer.innerHTML = "";
+    cardForm.reset();
     formContainer.style.display = "none";
     addCardDiv.style.display = "none";
     addCardBtn.style.display = "none";
@@ -61,6 +62,4 @@ class Card {
       formContainer.style.display = "block";
     }
   };
-
-  // updateCardHandler()
 }
