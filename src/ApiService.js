@@ -48,7 +48,7 @@ class ApiService {
       .then((card) => {
         if (card.errors) {
           // if any errors creating(coming from validations)
-          this.errorHandler(card.errors, 2000);
+          this.messageHandler(card.errors, 2000);
         } else {
           let newCard = new Card({ id: card.data.id, ...card.data.attributes });
           newCard.attachToDom();
@@ -60,18 +60,18 @@ class ApiService {
       .catch((error) => alert(error));
   };
 
-  cardDelete(id) {
-    const bodyData = { id };
-    fetch(`${endPoint}/${id}`, {
+  deleteCard(id) {
+    fetch(`${this.url}/${id}`, {
       method: "DELETE",
       headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ bodyData }),
       //  same as listing down all attributes ie "({title: title, })"
-    }).then((res) => res.json());
+    })
+      .then((res) => res.json())
+      .then((card) => this.messageHandler(card.message, 2000));
   }
 
   // can use this with create, update and delete
-  errorHandler(message, duration) {
+  messageHandler(message, duration) {
     const error = document.createElement("div");
     error.classList.add("error");
     error.innerText = `${message}`;

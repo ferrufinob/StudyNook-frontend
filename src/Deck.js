@@ -8,10 +8,10 @@ class Deck {
     this.constructor.all.push(this);
   }
 
-  attachToDom(num) {
+  attachToDom(id) {
     const deckDiv = document.createElement("div");
     deckDiv.classList.add("deck");
-    deckDiv.dataset.id = `deck-${this.id}`;
+    deckDiv.dataset.id = `deck-${id}`;
     deckDiv.innerHTML = this.renderInnerHTML();
     deckContainer.append(deckDiv);
     deckDiv.addEventListener("click", this.handleClick);
@@ -39,9 +39,9 @@ class Deck {
     this.filteredCards();
   };
 
-  filteredCards = (e) => {
+  filteredCards = () => {
     let filteredCards = Card.all.filter((card) => card.deckId == this.id);
     // attach to dom only after deck button has been clicked and cards have been filtered.
-    filteredCards.map((card) => card.attachToDom());
+    filteredCards.map((card) => card.attachToDom(card.id));
   };
 }

@@ -14,11 +14,16 @@ class Card {
     cardDiv.classList.add("card");
     cardDiv.dataset.id = this.id;
     cardDiv.id = `deck-${this.deckId}`;
-    cardDiv.innerHTML = this.renderInnerHTML();
-    cardContainer.append(cardDiv);
+    cardDiv.insertAdjacentHTML("beforeend", this.renderInnerHTML());
+    cardContainer.appendChild(cardDiv);
     cardDiv.addEventListener("click", (e) => {
       if (e.target.classList.contains("flipBtn")) {
         cardDiv.classList.toggle("flipping");
+      } else if (e.target.classList.contains("deleteBtn")) {
+        // cardDiv.style.display = "none";
+        cardDiv.parentNode.removeChild(cardDiv);
+        cardApi.deleteCard(this.id);
+        // cardContainer.innerHTML = "";
       }
     });
   }
@@ -26,7 +31,7 @@ class Card {
   renderInnerHTML() {
     return `
     <button class="fas fa-times deleteBtn" data-id=${this.id} data-action="delete"></button>
-    <button class="far fa-edit editBtn" data-id=${this.id} data-action="edit"></button>
+    <button class="fas fa-edit editBtn" data-id=${this.id} data-action="edit"></button>
     <div class="cardFront">
     <button class="flipBtn">FLIP</button>
     <h2>${this.front}</h2>
@@ -46,6 +51,7 @@ class Card {
 
   static backBtn() {
     cardContainer.innerHTML = "";
+    cardContainer.style.display = "none";
     cardForm.reset();
     formContainer.style.display = "none";
     addCardDiv.style.display = "none";
@@ -65,7 +71,7 @@ class Card {
   };
 
   static filteredCards = (deck) => {
-    let filteredCards = Card.all.filter((card) => {
+    return Card.all.filter((card) => {
       parseInt(card.deckId) === deck;
       // console.log(card);
       console.log(deck, card.deckId);
