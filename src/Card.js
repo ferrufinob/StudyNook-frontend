@@ -14,24 +14,28 @@ class Card {
     cardDiv.classList.add("card");
     cardDiv.dataset.id = this.id;
     cardDiv.id = `deck-${this.deckId}`;
-    cardDiv.insertAdjacentHTML("beforeend", this.renderInnerHTML());
+    cardDiv.innerHTML = this.renderInnerHTML();
     cardContainer.appendChild(cardDiv);
     cardDiv.addEventListener("click", (e) => {
       if (e.target.classList.contains("flipBtn")) {
         cardDiv.classList.toggle("flipping");
       } else if (e.target.classList.contains("deleteBtn")) {
-        // cardDiv.style.display = "none";
-        cardDiv.parentNode.removeChild(cardDiv);
+        // cardDiv.classList.add("hidden");
+        // cardDiv.removeAttribute(".card");
+        // cardContainer.removeChild(cardDiv);
+        // cardDiv.parentNode.removeChild(cardDiv);
+        console.log(e.target);
         cardApi.deleteCard(this.id);
-        // cardContainer.innerHTML = "";
+        e.target.parentElement.remove();
+        // cardDiv.classList.add("hidden");
       }
     });
   }
 
   renderInnerHTML() {
     return `
-    <button class="fas fa-times deleteBtn" data-id=${this.id} data-action="delete"></button>
-    <button class="fas fa-edit editBtn" data-id=${this.id} data-action="edit"></button>
+    <button class="deleteBtn" data-id=${this.id} data-action="delete">delete</button>
+    <button class="editBtn" data-id=${this.id} data-action="edit">edit</button>
     <div class="cardFront">
     <button class="flipBtn">FLIP</button>
     <h2>${this.front}</h2>
@@ -50,15 +54,15 @@ class Card {
   }
 
   static backBtn() {
+    cardForm.reset();
     cardContainer.innerHTML = "";
     cardContainer.style.display = "none";
-    cardForm.reset();
+    document.querySelector("#deckId").remove();
     formContainer.style.display = "none";
     addCardDiv.style.display = "none";
     addCardBtn.style.display = "none";
     backBtn.style.display = "none";
     deckContainer.style.display = "flex";
-    document.querySelector("#deckId").remove();
   }
 
   static cardFormToggler = () => {
@@ -68,17 +72,5 @@ class Card {
     } else {
       formContainer.style.display = "block";
     }
-  };
-
-  static filteredCards = (deck) => {
-    return Card.all.filter((card) => {
-      parseInt(card.deckId) === deck;
-      // console.log(card);
-      console.log(deck, card.deckId);
-      card.attachToDom();
-    });
-
-    // attach to dom only after deck button has been clicked and cards have been filtered.
-    // filteredCards.map((card) => card.attachToDom());
   };
 }

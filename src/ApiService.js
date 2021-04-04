@@ -17,9 +17,9 @@ class ApiService {
   getAllCards = () => {
     fetch(this.url)
       .then((res) => res.json())
-      .then((cards) => {
-        cards.data.map((card) => new Card({ id: card.id, ...card.attributes }));
-      });
+      .then((cards) =>
+        cards.data.map((card) => new Card({ id: card.id, ...card.attributes }))
+      );
   };
 
   createCard = (e) => {
@@ -28,7 +28,7 @@ class ApiService {
     const front = document.querySelector("#frontInput").value;
     const back = document.querySelector("#backInput").value;
 
-    let newCardObj = {
+    let configObj = {
       front,
       back,
       deck_id,
@@ -40,7 +40,7 @@ class ApiService {
         "Content-Type": "application/json",
         Accept: "application/json",
       },
-      body: JSON.stringify(newCardObj),
+      body: JSON.stringify(configObj),
     };
 
     fetch(this.url, configCard)
@@ -64,12 +64,19 @@ class ApiService {
     fetch(`${this.url}/${id}`, {
       method: "DELETE",
       headers: { "Content-Type": "application/json" },
-      //  same as listing down all attributes ie "({title: title, })"
     })
       .then((res) => res.json())
       .then((card) => this.messageHandler(card.message, 2000));
   }
-
+  updateCard = (id, card) => {
+    fetch(`${this.url}/${id}`, {
+      method: "PATCH",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(card),
+    }).then((resp) => resp.json());
+  };
   // can use this with create, update and delete
   messageHandler(message, duration) {
     const error = document.createElement("div");
