@@ -73,4 +73,12 @@ class Card {
       formContainer.style.display = "block";
     }
   };
+
+  static assignDeckToForm(deck) {
+    let hiddenInput = document.createElement("input");
+    hiddenInput.type = "hidden";
+    hiddenInput.value = deck;
+    hiddenInput.id = "deck_id";
+    cardForm.append(hiddenInput);
+  }
 }

@@ -13,7 +13,6 @@ class Deck {
 
   attachToDom() {
     deckContainer.append(this.renderInnerHTML());
-
     this.decks.addEventListener("click", this.showCards.bind(this));
   }
 
@@ -36,11 +35,7 @@ class Deck {
     addCardDiv.style.display = "block";
     addCardBtn.style.display = "inline";
     backBtn.style.display = "inline";
-    let hiddenInput = document.createElement("input");
-    hiddenInput.type = "hidden";
-    hiddenInput.value = this.id;
-    hiddenInput.id = "deck_id";
-    cardForm.append(hiddenInput);
+    Card.assignDeckToForm(this.id);
     this.cards().map((card) => {
       card.attachToDom();
     });
