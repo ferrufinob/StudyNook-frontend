@@ -57,7 +57,7 @@ class Card {
     cardForm.reset();
     cardContainer.innerHTML = "";
     cardContainer.style.display = "none";
-    document.querySelector("#deckId").remove();
+    document.querySelector("#deck_id").remove();
     formContainer.style.display = "none";
     addCardDiv.style.display = "none";
     addCardBtn.style.display = "none";

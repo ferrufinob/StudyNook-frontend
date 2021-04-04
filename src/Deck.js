@@ -12,12 +12,9 @@ class Deck {
   }
 
   attachToDom() {
-    // const deckDiv = document.createElement("div");
-    // deckDiv.classList.add("deck");
-    // deckDiv.dataset.id = `deck-${this.id}`;
-    //  this.decks.renderInnerHTML();
     deckContainer.append(this.renderInnerHTML());
-    this.decks.addEventListener("click", this.handleClick);
+
+    this.decks.addEventListener("click", this.showCards.bind(this));
   }
 
   renderInnerHTML() {
@@ -28,11 +25,13 @@ class Deck {
     return this.decks;
   }
 
-  handleClick = () => {
-    // is there a cleaner and better way to do this?
+  cards() {
+    return Card.all.filter((card) => card.deckId == this.id);
+  }
 
+  showCards() {
     deckContainer.style.display = "none";
-    // cardContainer.innerHTML = "";
+    cardContainer.innerHTML = "";
     cardContainer.style.display = "flex";
     addCardDiv.style.display = "block";
     addCardBtn.style.display = "inline";
@@ -40,15 +39,10 @@ class Deck {
     let hiddenInput = document.createElement("input");
     hiddenInput.type = "hidden";
     hiddenInput.value = this.id;
-    hiddenInput.id = "deckId";
+    hiddenInput.id = "deck_id";
     cardForm.append(hiddenInput);
-    this.filteredCards();
-  };
-
-  filteredCards = (e) => {
-    let filteredCards = Card.all.filter((card) => card.deckId == this.id);
-
-    // attach to dom only after deck button has been clicked and cards have been filtered.
-    filteredCards.map((card) => card.attachToDom());
-  };
+    this.cards().map((card) => {
+      card.attachToDom();
+    });
+  }
 }
