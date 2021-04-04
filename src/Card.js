@@ -23,9 +23,7 @@ class Card {
   }
 
   renderHTML() {
-    this.cards.insertAdjacentHTML(
-      "beforeend",
-      `
+    this.cards.innerHTML = `
     <button class="deleteBtn" data-id=${this.id} data-action="delete">delete</button>
     <button class="editBtn" data-id=${this.id} data-action="edit">edit</button>
     <div class="cardFront">
@@ -36,8 +34,7 @@ class Card {
     <button class="flipBtn">FLIP</button>
     <p>${this.back}</p>
     </div>
-    `
-    );
+    `;
     return this.cards;
   }
 
@@ -48,6 +45,7 @@ class Card {
   }
 
   static backBtn() {
+    this.cards = "";
     cardForm.reset();
     cardContainer.innerHTML = "";
     cardContainer.style.display = "none";

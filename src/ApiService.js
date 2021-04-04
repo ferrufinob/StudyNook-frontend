@@ -18,10 +18,7 @@ class ApiService {
     fetch(this.url)
       .then((res) => res.json())
       .then((cards) => {
-        cards.data.map((card) => {
-          return new Card({ id: card.id, ...card.attributes });
-          // allCards.attachToDom();
-        });
+        cards.data.map((card) => new Card({ id: card.id, ...card.attributes }));
       });
   };
 

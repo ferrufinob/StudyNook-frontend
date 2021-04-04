@@ -17,13 +17,10 @@ class Deck {
   }
 
   renderHTML() {
-    this.decks.insertAdjacentHTML(
-      "beforeend",
-      `
+    this.decks.innerHTML = `
         <h3>${this.name}</h3>
         <p id="count">${this.cardCount}<p>
-        `
-    );
+        `;
     return this.decks;
   }
 
