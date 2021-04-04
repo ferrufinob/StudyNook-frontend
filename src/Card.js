@@ -5,35 +5,27 @@ class Card {
     this.front = front;
     this.back = back;
     this.id = id;
-    this.deckId = deck_id;
+    this.deck_id = deck_id;
+    this.cards = document.createElement("div");
+    this.cards.classList.add("card");
+    this.cards.id = `deck-${this.deckId}`;
     this.constructor.all.push(this);
   }
 
   attachToDom() {
-    const cardDiv = document.createElement("div");
-    cardDiv.classList.add("card");
-    cardDiv.dataset.id = this.id;
-    cardDiv.id = `deck-${this.deckId}`;
-    cardDiv.innerHTML = this.renderInnerHTML();
-    cardContainer.appendChild(cardDiv);
-    cardDiv.addEventListener("click", (e) => {
+    cardContainer.append(this.renderHTML());
+
+    this.cards.addEventListener("click", (e) => {
       if (e.target.classList.contains("flipBtn")) {
         cardDiv.classList.toggle("flipping");
-      } else if (e.target.classList.contains("deleteBtn")) {
-        // cardDiv.classList.add("hidden");
-        // cardDiv.removeAttribute(".card");
-        // cardContainer.removeChild(cardDiv);
-        // cardDiv.parentNode.removeChild(cardDiv);
-        console.log(e.target);
-        cardApi.deleteCard(this.id);
-        e.target.parentElement.remove();
-        // cardDiv.classList.add("hidden");
       }
     });
   }
 
-  renderInnerHTML() {
-    return `
+  renderHTML() {
+    this.cards.insertAdjacentHTML(
+      "beforeend",
+      `
     <button class="deleteBtn" data-id=${this.id} data-action="delete">delete</button>
     <button class="editBtn" data-id=${this.id} data-action="edit">edit</button>
     <div class="cardFront">
@@ -44,7 +36,9 @@ class Card {
     <button class="flipBtn">FLIP</button>
     <p>${this.back}</p>
     </div>
-    `;
+    `
+    );
+    return this.cards;
   }
 
   static addEventListeners() {
@@ -74,7 +68,7 @@ class Card {
     }
   };
 
-  static assignDeckToForm(deck) {
+  static addDeckToForm(deck) {
     let hiddenInput = document.createElement("input");
     hiddenInput.type = "hidden";
     hiddenInput.value = deck;

@@ -12,20 +12,23 @@ class Deck {
   }
 
   attachToDom() {
-    deckContainer.append(this.renderInnerHTML());
+    deckContainer.append(this.renderHTML());
     this.decks.addEventListener("click", this.showCards.bind(this));
   }
 
-  renderInnerHTML() {
-    this.decks.innerHTML = `
+  renderHTML() {
+    this.decks.insertAdjacentHTML(
+      "beforeend",
+      `
         <h3>${this.name}</h3>
         <p id="count">${this.cardCount}<p>
-        `;
+        `
+    );
     return this.decks;
   }
 
   cards() {
-    return Card.all.filter((card) => card.deckId == this.id);
+    return Card.all.filter((card) => card.deck_id == this.id);
   }
 
   showCards() {
@@ -35,7 +38,7 @@ class Deck {
     addCardDiv.style.display = "block";
     addCardBtn.style.display = "inline";
     backBtn.style.display = "inline";
-    Card.assignDeckToForm(this.id);
+    Card.addDeckToForm(this.id);
     this.cards().map((card) => {
       card.attachToDom();
     });

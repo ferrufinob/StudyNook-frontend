@@ -210,6 +210,8 @@ label {
 }
 
 .formContainer {
+  justify-content: center;
+  align-items: center;
   border: 1px solid gray;
   margin: auto;
   border-radius: 5px;

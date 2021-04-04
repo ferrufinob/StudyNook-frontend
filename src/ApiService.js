@@ -17,9 +17,12 @@ class ApiService {
   getAllCards = () => {
     fetch(this.url)
       .then((res) => res.json())
-      .then((cards) =>
-        cards.data.map((card) => new Card({ id: card.id, ...card.attributes }))
-      );
+      .then((cards) => {
+        cards.data.map((card) => {
+          return new Card({ id: card.id, ...card.attributes });
+          // allCards.attachToDom();
+        });
+      });
   };
 
   createCard = (e) => {
@@ -47,8 +50,8 @@ class ApiService {
       .then((res) => res.json())
       .then((card) => {
         if (card.errors) {
-          // if any errors creating(coming from validations)
-          this.messageHandler(card.errors, 2000);
+          // if any errors creating(coming from rails validations)
+          this.displayMessage(card.errors, 2000);
         } else {
           let newCard = new Card({ id: card.data.id, ...card.data.attributes });
           newCard.attachToDom();
@@ -57,28 +60,27 @@ class ApiService {
         }
       })
       //if any errors with the fetch request
-      .catch((error) => alert(error));
+      .catch((error) => this.displayMessage(error, 2000));
   };
 
   deleteCard(id) {
     fetch(`${this.url}/${id}`, {
       method: "DELETE",
       headers: { "Content-Type": "application/json" },
-    })
-      .then((res) => res.json())
-      .then((card) => this.messageHandler(card.message, 2000));
+    }).then((res) => res.json());
   }
-  updateCard = (id, card) => {
-    fetch(`${this.url}/${id}`, {
-      method: "PATCH",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(card),
-    }).then((resp) => resp.json());
-  };
-  // can use this with create, update and delete
-  messageHandler(message, duration) {
+
+  // updateCard = (id, card) => {
+  //   fetch(`${this.url}/${id}`, {
+  //     method: "PATCH",
+  //     headers: {
+  //       "Content-Type": "application/json",
+  //     },
+  //     body: JSON.stringify(card),
+  //   }).then((resp) => resp.json());
+  // };
+
+  displayMessage(message, duration) {
     const error = document.createElement("div");
     error.classList.add("error");
     error.innerText = `${message}`;
