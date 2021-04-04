@@ -8,7 +8,7 @@ class Card {
     this.deck_id = deck_id;
     this.cards = document.createElement("div");
     this.cards.classList.add("card");
-    this.cards.id = `deck-${this.deckId}`;
+    this.cards.id = `deck-${this.deck_id}`;
     this.constructor.all.push(this);
   }
 
@@ -17,7 +17,7 @@ class Card {
 
     this.cards.addEventListener("click", (e) => {
       if (e.target.classList.contains("flipBtn")) {
-        cardDiv.classList.toggle("flipping");
+        this.cards.classList.toggle("flipping");
       }
     });
   }
