@@ -15,13 +15,16 @@ class Card {
 
   attachToDom() {
     cardContainer.append(this.renderHTML());
-    this.card.addEventListener("click", this.deleteCardHandler.bind(this));
+    const deleteBtn = document.createElement("button");
+    deleteBtn.innerText = "X";
+    deleteBtn.dataset.id = this.id;
+    deleteBtn.classList.add("deleteBtn");
+    this.card.append(deleteBtn);
+    deleteBtn.addEventListener("click", this.deleteCardHandler.bind(this));
   }
 
   renderHTML() {
     this.card.innerHTML = `
-    <button class="deleteBtn" data-id=${this.id} data-action="delete">delete</button>
-    <button class="editBtn" data-id=${this.id} data-action="edit">edit</button>
     <div class="cardFront">
     <button class="flipBtn">FLIP</button>
     <h2>${this.front}</h2>
