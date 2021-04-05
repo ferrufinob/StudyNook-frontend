@@ -22,8 +22,7 @@ class ApiService {
       });
   };
 
-  createCard = (e) => {
-    e.preventDefault();
+  createCard = () => {
     const deck_id = document.querySelector("#deck_id").value;
     const front = document.querySelector("#frontInput").value;
     const back = document.querySelector("#backInput").value;
@@ -52,8 +51,6 @@ class ApiService {
         } else {
           let newCard = new Card({ id: card.data.id, ...card.data.attributes });
           newCard.attachToDom();
-          cardForm.reset();
-          formContainer.style.display = "none";
         }
       })
       //if any errors with the fetch request
@@ -66,16 +63,6 @@ class ApiService {
       headers: { "Content-Type": "application/json" },
     }).then((res) => res.json());
   }
-
-  // updateCard = (id, card) => {
-  //   fetch(`${this.url}/${id}`, {
-  //     method: "PATCH",
-  //     headers: {
-  //       "Content-Type": "application/json",
-  //     },
-  //     body: JSON.stringify(card),
-  //   }).then((resp) => resp.json());
-  // };
 
   displayMessage(message, duration) {
     const error = document.createElement("div");

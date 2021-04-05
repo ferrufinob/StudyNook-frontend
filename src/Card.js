@@ -8,7 +8,8 @@ class Card {
     this.deck_id = deck_id;
     this.cards = document.createElement("div");
     this.cards.classList.add("card");
-    this.cards.id = `deck-${this.deck_id}`;
+    this.cards.id = `card-${this.id}`;
+    this.cards.dataset.id = `deck-${this.deck_id}`;
     this.constructor.all.push(this);
   }
 
@@ -42,7 +43,6 @@ class Card {
   static addEventListeners() {
     backBtn.addEventListener("click", this.backBtn);
     addCardBtn.addEventListener("click", this.cardFormToggler);
-    cardForm.addEventListener("submit", (e) => cardApi.createCard(e));
   }
 
   static backBtn() {
@@ -72,5 +72,12 @@ class Card {
     hiddenInput.value = deck;
     hiddenInput.id = "deck_id";
     cardForm.append(hiddenInput);
+  }
+
+  static handleSubmit(e) {
+    e.preventDefault();
+    cardApi.createCard();
+    cardForm.reset();
+    formContainer.style.display = "none";
   }
 }
