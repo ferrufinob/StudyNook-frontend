@@ -15,7 +15,7 @@ class Card {
 
   attachToDom() {
     cardContainer.append(this.renderHTML());
-    this.cardEventListeners();
+    this.card.addEventListener("click", this.deleteCardHandler.bind(this));
   }
 
   renderHTML() {
@@ -34,10 +34,6 @@ class Card {
     return this.card;
   }
 
-  cardEventListeners() {
-    this.card.addEventListener("click", this.deleteCardHandler.bind(this));
-  }
-
   static addTogglerEventListeners() {
     backBtn.addEventListener("click", this.backBtn);
     addCardBtn.addEventListener("click", this.cardFormToggler);
@@ -54,8 +50,9 @@ class Card {
     deckContainer.style.display = "flex";
   }
 
-  static cardFormToggler() {
+  static cardFormToggler(e) {
     let state = formContainer.style.display;
+
     if (state === "block") {
       formContainer.style.display = "none";
     } else {
@@ -74,9 +71,9 @@ class Card {
   // make this click handler if i do edit
   deleteCardHandler(e) {
     if (e.target.classList.contains("deleteBtn")) {
-      cardApi.deleteCard(this.id);
       this.removeCardFromAll(this);
       this.card.remove();
+      cardApi.deleteCard(this.id);
     }
   }
 
