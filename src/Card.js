@@ -15,16 +15,12 @@ class Card {
 
   attachToDom() {
     cardContainer.append(this.renderHTML());
-    const deleteBtn = document.createElement("button");
-    deleteBtn.innerText = "X";
-    deleteBtn.dataset.id = this.id;
-    deleteBtn.classList.add("deleteBtn");
-    this.card.append(deleteBtn);
-    deleteBtn.addEventListener("click", this.deleteCardHandler.bind(this));
+    this.card.addEventListener("click", this.deleteCardHandler.bind(this));
   }
 
   renderHTML() {
     this.card.innerHTML = `
+    <button class="deleteBtn" dataset-id="${this}">X</button>
     <div class="cardFront">
     <button class="flipBtn">FLIP</button>
     <h2>${this.front}</h2>
@@ -37,9 +33,10 @@ class Card {
     return this.card;
   }
 
-  static addTogglerEventListeners() {
+  static addEventListeners() {
     backBtn.addEventListener("click", this.backBtn);
     addCardBtn.addEventListener("click", this.cardFormToggler);
+    cardForm.addEventListener("submit", cardApi.createCard);
   }
 
   static backBtn() {

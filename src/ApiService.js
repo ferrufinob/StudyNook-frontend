@@ -61,7 +61,6 @@ class ApiService {
   deleteCard(id) {
     fetch(`${this.url}/${id}`, {
       method: "DELETE",
-      headers: { "Content-Type": "application/json" },
     })
       .then((res) => res.json())
       .then((card) => this.displayMessage(card.message, 2000));

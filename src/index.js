@@ -12,8 +12,7 @@ const backBtn = document.querySelector(".viewDecksBtn");
 
 deckApi.getAllDecks();
 cardApi.getAllCards();
-Card.addTogglerEventListeners();
-cardForm.addEventListener("submit", cardApi.createCard);
+Card.addEventListeners();
 
 cardContainer.addEventListener("click", (e) => {
   if (e.target.classList.contains("flipBtn")) {
