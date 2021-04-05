@@ -14,12 +14,7 @@ class Card {
 
   attachToDom() {
     cardContainer.append(this.renderHTML());
-
-    this.cards.addEventListener("click", (e) => {
-      if (e.target.classList.contains("flipBtn")) {
-        this.cards.classList.toggle("flipping");
-      }
-    });
+    this.cards.addEventListener("click", this.flipCard);
   }
 
   renderHTML() {
@@ -38,6 +33,12 @@ class Card {
     return this.cards;
   }
 
+  flipCard = (e) => {
+    if (e.target.classList.contains("flipBtn")) {
+      this.cards.classList.toggle("flipping");
+    }
+  };
+
   static addEventListeners() {
     backBtn.addEventListener("click", this.backBtn);
     addCardBtn.addEventListener("click", this.cardFormToggler);
@@ -45,7 +46,6 @@ class Card {
   }
 
   static backBtn() {
-    this.cards = "";
     cardForm.reset();
     cardContainer.innerHTML = "";
     cardContainer.style.display = "none";

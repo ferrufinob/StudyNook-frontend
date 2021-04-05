@@ -12,7 +12,8 @@ class Deck {
   }
 
   attachToDom() {
-    deckContainer.append(this.renderHTML());
+    this.renderHTML();
+    deckContainer.append(this.decks);
     this.decks.addEventListener("click", this.showCards.bind(this));
   }
 
