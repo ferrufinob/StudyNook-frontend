@@ -12,5 +12,5 @@ const backBtn = document.querySelector(".viewDecksBtn");
 
 deckApi.getAllDecks();
 cardApi.getAllCards();
-Card.addEventListeners();
-cardForm.addEventListener("submit", Card.handleSubmit);
+Card.addTogglerEventListeners();
+cardForm.addEventListener("submit", cardApi.createCard);

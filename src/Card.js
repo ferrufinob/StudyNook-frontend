@@ -6,20 +6,20 @@ class Card {
     this.back = back;
     this.id = id;
     this.deck_id = deck_id;
-    this.cards = document.createElement("div");
-    this.cards.classList.add("card");
-    this.cards.id = `card-${this.id}`;
-    this.cards.dataset.id = `deck-${this.deck_id}`;
+    this.card = document.createElement("div");
+    this.card.classList.add("card");
+    this.card.id = `card-${this.id}`;
+    this.card.dataset.id = `deck-${this.deck_id}`;
     this.constructor.all.push(this);
   }
 
   attachToDom() {
     cardContainer.append(this.renderHTML());
-    this.cards.addEventListener("click", this.flipCard);
+    this.cardEventListeners();
   }
 
   renderHTML() {
-    this.cards.innerHTML = `
+    this.card.innerHTML = `
     <button class="deleteBtn" data-id=${this.id} data-action="delete">delete</button>
     <button class="editBtn" data-id=${this.id} data-action="edit">edit</button>
     <div class="cardFront">
@@ -31,16 +31,15 @@ class Card {
     <p>${this.back}</p>
     </div>
     `;
-    return this.cards;
+    return this.card;
   }
 
-  flipCard = (e) => {
-    if (e.target.classList.contains("flipBtn")) {
-      this.cards.classList.toggle("flipping");
-    }
-  };
+  cardEventListeners() {
+    this.card.addEventListener("click", this.flipCard);
+    this.card.addEventListener("click", this.deleteCardHandler);
+  }
 
-  static addEventListeners() {
+  static addTogglerEventListeners() {
     backBtn.addEventListener("click", this.backBtn);
     addCardBtn.addEventListener("click", this.cardFormToggler);
   }
@@ -66,6 +65,12 @@ class Card {
     }
   };
 
+  flipCard = (e) => {
+    if (e.target.classList.contains("flipBtn")) {
+      this.card.classList.toggle("flipping");
+    }
+  };
+
   static addDeckToForm(deck) {
     let hiddenInput = document.createElement("input");
     hiddenInput.type = "hidden";
@@ -74,10 +79,23 @@ class Card {
     cardForm.append(hiddenInput);
   }
 
-  static handleSubmit(e) {
-    e.preventDefault();
-    cardApi.createCard();
-    cardForm.reset();
-    formContainer.style.display = "none";
+  // make this click handler if i do edit
+  deleteCardHandler = (e) => {
+    if (e.target.classList.contains("deleteBtn")) {
+      cardApi.deleteCard(this.id);
+      this.removeCardFromAll(this);
+      this.card.remove();
+    }
+  };
+
+  removeCardFromAll(card) {
+    //find the card element in DOM
+    const index = this.constructor.all.indexOf(card);
+    //check whether or not the value is in the cards array
+    if (index !== -1) {
+      //if it's there remove it
+      this.constructor.all.splice(index, 1);
+    }
+    return false;
   }
 }

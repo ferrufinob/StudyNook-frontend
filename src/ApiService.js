@@ -22,7 +22,8 @@ class ApiService {
       });
   };
 
-  createCard = () => {
+  createCard = (e) => {
+    e.preventDefault();
     const deck_id = document.querySelector("#deck_id").value;
     const front = document.querySelector("#frontInput").value;
     const back = document.querySelector("#backInput").value;
@@ -46,14 +47,14 @@ class ApiService {
       .then((res) => res.json())
       .then((card) => {
         if (card.errors) {
-          // if any errors creating(coming from rails validations)
           this.displayMessage(card.errors, 2000);
         } else {
           let newCard = new Card({ id: card.data.id, ...card.data.attributes });
           newCard.attachToDom();
+          cardForm.reset();
+          formContainer.style.display = "none";
         }
       })
-      //if any errors with the fetch request
       .catch((error) => this.displayMessage(error, 2000));
   };
 
@@ -61,7 +62,9 @@ class ApiService {
     fetch(`${this.url}/${id}`, {
       method: "DELETE",
       headers: { "Content-Type": "application/json" },
-    }).then((res) => res.json());
+    })
+      .then((res) => res.json())
+      .then((card) => this.displayMessage(card.message, 2000));
   }
 
   displayMessage(message, duration) {
