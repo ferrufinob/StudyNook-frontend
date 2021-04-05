@@ -35,8 +35,8 @@ class Card {
   }
 
   cardEventListeners() {
-    this.card.addEventListener("click", this.flipCard);
-    this.card.addEventListener("click", this.deleteCardHandler);
+    this.card.addEventListener("click", this.flipCard.bind(this));
+    this.card.addEventListener("click", this.deleteCardHandler.bind(this));
   }
 
   static addTogglerEventListeners() {
@@ -56,20 +56,20 @@ class Card {
     deckContainer.style.display = "flex";
   }
 
-  static cardFormToggler = () => {
+  static cardFormToggler() {
     let state = formContainer.style.display;
     if (state === "block") {
       formContainer.style.display = "none";
     } else {
       formContainer.style.display = "block";
     }
-  };
+  }
 
-  flipCard = (e) => {
+  flipCard(e) {
     if (e.target.classList.contains("flipBtn")) {
       this.card.classList.toggle("flipping");
     }
-  };
+  }
 
   static addDeckToForm(deck) {
     let hiddenInput = document.createElement("input");
@@ -80,13 +80,13 @@ class Card {
   }
 
   // make this click handler if i do edit
-  deleteCardHandler = (e) => {
+  deleteCardHandler(e) {
     if (e.target.classList.contains("deleteBtn")) {
       cardApi.deleteCard(this.id);
       this.removeCardFromAll(this);
       this.card.remove();
     }
-  };
+  }
 
   removeCardFromAll(card) {
     //find the card element in DOM
