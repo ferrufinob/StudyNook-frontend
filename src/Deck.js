@@ -13,7 +13,7 @@ class Deck {
 
   attachToDom() {
     deckContainer.append(this.renderHTML());
-    this.decks.addEventListener("click", this.showCards.bind(this));
+    this.decks.addEventListener("click", this.showCards);
   }
 
   renderHTML() {
@@ -28,7 +28,7 @@ class Deck {
     return Card.all.filter((card) => card.deck_id == this.id);
   }
 
-  showCards() {
+  showCards = () => {
     deckContainer.style.display = "none";
     cardContainer.style.display = "flex";
     addCardDiv.style.display = "block";
@@ -38,5 +38,5 @@ class Deck {
     this.cards().map((card) => {
       card.attachToDom();
     });
-  }
+  };
 }

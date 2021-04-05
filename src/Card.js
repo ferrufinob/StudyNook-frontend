@@ -15,12 +15,14 @@ class Card {
 
   attachToDom() {
     cardContainer.append(this.renderHTML());
-    this.card.addEventListener("click", this.deleteCardHandler.bind(this));
+    this.card.addEventListener("click", this.deleteCardHandler);
+    this.card.addEventListener("click", this.updateCardHandler);
   }
 
   renderHTML() {
     this.card.innerHTML = `
-    <button class="deleteBtn" dataset-id="${this}">X</button>
+    <button class="deleteBtn" data-id="${this.id}">X</button>
+    <button class="editBtn" data-id="${this.id}">edit</button>
     <div class="cardFront">
     <button class="flipBtn">FLIP</button>
     <h2>${this.front}</h2>
@@ -41,6 +43,7 @@ class Card {
 
   static backBtn() {
     cardForm.reset();
+    cardContainer.innerHTML = "";
     cardContainer.style.display = "none";
     document.querySelector("#deck_id").remove();
     formContainer.style.display = "none";
@@ -68,23 +71,13 @@ class Card {
     cardForm.append(hiddenInput);
   }
 
-  // make this click handler if i do edit
-  deleteCardHandler(e) {
+  deleteCardHandler = (e) => {
     if (e.target.classList.contains("deleteBtn")) {
-      this.removeCardFromAll(this);
+      this.constructor.all = this.constructor.all.filter(
+        (card) => card != this
+      );
       this.card.remove();
       cardApi.deleteCard(this.id);
     }
-  }
-
-  removeCardFromAll(card) {
-    //find the card element in DOM
-    const index = this.constructor.all.indexOf(card);
-    //check whether or not the value is in the cards array
-    if (index !== -1) {
-      //if it's there remove it
-      this.constructor.all.splice(index, 1);
-    }
-    return false;
-  }
+  };
 }
