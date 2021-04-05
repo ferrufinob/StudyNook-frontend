@@ -35,7 +35,6 @@ class Card {
   }
 
   cardEventListeners() {
-    this.card.addEventListener("click", this.flipCard.bind(this));
     this.card.addEventListener("click", this.deleteCardHandler.bind(this));
   }
 
@@ -46,7 +45,6 @@ class Card {
 
   static backBtn() {
     cardForm.reset();
-    cardContainer.innerHTML = "";
     cardContainer.style.display = "none";
     document.querySelector("#deck_id").remove();
     formContainer.style.display = "none";
@@ -62,12 +60,6 @@ class Card {
       formContainer.style.display = "none";
     } else {
       formContainer.style.display = "block";
-    }
-  }
-
-  flipCard(e) {
-    if (e.target.classList.contains("flipBtn")) {
-      this.card.classList.toggle("flipping");
     }
   }
 

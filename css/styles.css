@@ -16,11 +16,20 @@ body {
 header {
   height: 120px;
   width: 100%;
-  text-align: left;
-  display: flex;
   background-color: #ffe8db;
   color: #443f3c;
   box-shadow: 0 0px 3px #393e46;
+}
+
+.header {
+  display: flex;
+  padding-left: 20px;
+}
+
+.subheader {
+  display: flex;
+  margin-top: -44px;
+  padding-left: 40px;
 }
 
 /* footer */
@@ -53,8 +62,11 @@ footer {
 /* FONTS  */
 
 h1 {
-  padding-left: 20px;
   font-size: 3em;
+}
+
+.subheader p {
+  font-size: 1.1em;
 }
 
 .cardFront h2 {
@@ -75,11 +87,7 @@ h1 {
   margin-top: 90px;
   font-weight: 500;
   font-size: 1.5em;
-  white-space: pre-line;
-}
-
-label {
-  font-size: 1.3em;
+  /* white-space: pre-line; */
 }
 
 /* Deck Display */
@@ -143,11 +151,6 @@ label {
   background-color: #f9f3f3;
 }
 
-/* Togglers */
-.hidden {
-  display: none;
-}
-
 /* Flip Button */
 
 .flipBtn {
@@ -168,11 +171,6 @@ label {
   border: 1px solid grey;
 }
 
-/* hide */
-.hidden {
-  display: none;
-}
-
 /* Card flip event triggered */
 .card.flipping {
   transform: rotateY(180deg);
@@ -183,7 +181,6 @@ label {
 .card .cardFront,
 .card .cardBack {
   position: absolute;
-  backface-visibility: hidden;
   width: 100%;
   height: 100%;
   -webkit-backface-visibility: hidden;

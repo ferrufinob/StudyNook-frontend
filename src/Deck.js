@@ -12,8 +12,7 @@ class Deck {
   }
 
   attachToDom() {
-    this.renderHTML();
-    deckContainer.append(this.decks);
+    deckContainer.append(this.renderHTML());
     this.decks.addEventListener("click", this.showCards.bind(this));
   }
 
@@ -31,7 +30,6 @@ class Deck {
 
   showCards() {
     deckContainer.style.display = "none";
-    cardContainer.innerHTML = "";
     cardContainer.style.display = "flex";
     addCardDiv.style.display = "block";
     addCardBtn.style.display = "inline";

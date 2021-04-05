@@ -14,3 +14,9 @@ deckApi.getAllDecks();
 cardApi.getAllCards();
 Card.addTogglerEventListeners();
 cardForm.addEventListener("submit", cardApi.createCard);
+
+cardContainer.addEventListener("click", (e) => {
+  if (e.target.classList.contains("flipBtn")) {
+    document.querySelector(".card").classList.toggle("flipping");
+  }
+});
