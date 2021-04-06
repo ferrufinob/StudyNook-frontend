@@ -9,6 +9,7 @@ const formContainer = document.querySelector(".formContainer");
 const addCardDiv = document.querySelector(".addCardDiv");
 const addCardBtn = document.querySelector(".addCardBtn");
 const backBtn = document.querySelector(".viewDecksBtn");
+const searchContainer = document.querySelector(".searchBar");
 
 deckApi.getAllDecks();
 cardApi.getAllCards();
@@ -17,5 +18,22 @@ Card.addEventListeners();
 cardContainer.addEventListener("click", (e) => {
   if (e.target.classList.contains("flipBtn")) {
     document.querySelector(".card").classList.toggle("flipping");
+  }
+});
+
+searchContainer.addEventListener("keyup", (e) => {
+  const string = e.target.value.toLowerCase();
+  if (string) {
+    const filteredCards = Card.all.filter((card) => {
+      return (
+        card.front.toLowerCase().includes(string) ||
+        card.back.toLowerCase().includes(string)
+      );
+    });
+    filteredCards.map((card) => {
+      card.attachToDom();
+    });
+  } else {
+    cardContainer.innerHTML = "";
   }
 });

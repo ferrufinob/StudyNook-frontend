@@ -58,13 +58,13 @@ class ApiService {
       .catch((error) => this.displayMessage(error, 2000));
   };
 
-  deleteCard(id) {
+  deleteCard = (id) => {
     fetch(`${this.url}/${id}`, {
       method: "DELETE",
     })
       .then((res) => res.json())
       .then((card) => this.displayMessage(card.message, 2000));
-  }
+  };
 
   displayMessage(message, duration) {
     const error = document.createElement("div");

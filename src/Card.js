@@ -1,7 +1,7 @@
 "use strict";
 class Card {
   static all = [];
-  constructor({ id, front, back, deck_id }) {
+  constructor({ id, front, back, deck_id, deck_name }) {
     this.front = front;
     this.back = back;
     this.id = id;
@@ -16,13 +16,11 @@ class Card {
   attachToDom() {
     cardContainer.append(this.renderHTML());
     this.card.addEventListener("click", this.deleteCardHandler);
-    this.card.addEventListener("click", this.updateCardHandler);
   }
 
   renderHTML() {
     this.card.innerHTML = `
     <button class="deleteBtn" data-id="${this.id}">X</button>
-    <button class="editBtn" data-id="${this.id}">edit</button>
     <div class="cardFront">
     <button class="flipBtn">FLIP</button>
     <h2>${this.front}</h2>
@@ -42,9 +40,9 @@ class Card {
   }
 
   static backBtn() {
+    searchContainer.style.display = "block";
     cardForm.reset();
     cardContainer.innerHTML = "";
-    cardContainer.style.display = "none";
     document.querySelector("#deck_id").remove();
     formContainer.style.display = "none";
     addCardDiv.style.display = "none";

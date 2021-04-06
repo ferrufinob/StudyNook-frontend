@@ -1,10 +1,9 @@
 "use strict";
 class Deck {
   static all = [];
-  constructor({ id, name, card_count }) {
+  constructor({ id, name }) {
     this.id = id;
     this.name = name;
-    this.cardCount = card_count;
     this.decks = document.createElement("div");
     this.decks.id = `deck-${this.id}`;
     this.decks.classList.add("deck");
@@ -19,7 +18,6 @@ class Deck {
   renderHTML() {
     this.decks.innerHTML = `
         <h3>${this.name}</h3>
-        <p id="count">${this.cardCount}<p>
         `;
     return this.decks;
   }
@@ -29,6 +27,8 @@ class Deck {
   }
 
   showCards = () => {
+    searchContainer.style.display = "none";
+    cardContainer.innerHTML = "";
     deckContainer.style.display = "none";
     cardContainer.style.display = "flex";
     addCardDiv.style.display = "block";

@@ -29,7 +29,7 @@ header {
 .subheader {
   display: flex;
   margin-top: -44px;
-  padding-left: 40px;
+  padding-left: 20px;
 }
 
 /* footer */
@@ -75,12 +75,7 @@ h1 {
 
 .deck h3 {
   font-size: 1.5em;
-}
-
-.deck p {
-  color: #443f3c;
-  font-weight: bold;
-  font-size: 1.3em;
+  margin-top: 60px;
 }
 
 .cardBack p {
@@ -88,6 +83,25 @@ h1 {
   font-weight: 500;
   font-size: 1.5em;
   white-space: pre-line;
+}
+
+/* Search Bar */
+
+.searchContainer {
+  margin-top: 20px;
+  text-align: right;
+  width: 100%;
+}
+
+.searchBar {
+  width: 20%;
+  height: 32px;
+  border-radius: 3px;
+  border: 1px solid #f7f3e9;
+  box-shadow: 0px 1px 7px #eeebdd;
+  padding: 5px 10px;
+  font-size: 1.1em;
+  z-index: 10;
 }
 
 /* Deck Display */
@@ -104,8 +118,8 @@ h1 {
 
 .deck {
   float: left;
-  height: 150px;
-  width: 30%;
+  height: 140px;
+  width: 20%;
   padding: 0 10px;
   margin-top: 20px;
   margin-left: 60px;
