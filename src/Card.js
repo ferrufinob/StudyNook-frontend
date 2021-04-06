@@ -15,11 +15,14 @@ class Card {
 
   attachToDom() {
     cardContainer.append(this.renderHTML());
-    this.card.addEventListener("click", this.deleteCardHandler);
+    this.card.addEventListener("click", this.handleCardClicks);
   }
 
   renderHTML() {
-    this.card.innerHTML = `
+    this.card.innerHTML = "";
+    this.card.insertAdjacentHTML(
+      "beforeend",
+      `
     <button class="deleteBtn fas fa-times" data-id="${this.id}"></button>
     <div class="cardFront">
     <button class="flipBtn">FLIP</button>
@@ -29,7 +32,8 @@ class Card {
     <button class="flipBtn">FLIP</button>
     <p>${this.back}</p>
     </div>
-    `;
+    `
+    );
     return this.card;
   }
 
@@ -69,13 +73,17 @@ class Card {
     cardForm.append(hiddenInput);
   }
 
-  deleteCardHandler = (e) => {
+  deleteCard = () => {
+    this.constructor.all = this.constructor.all.filter((card) => card != this);
+    this.card.remove();
+    cardApi.deleteCard(this.id);
+  };
+
+  handleCardClicks = (e) => {
     if (e.target.classList.contains("deleteBtn")) {
-      this.constructor.all = this.constructor.all.filter(
-        (card) => card != this
-      );
-      this.card.remove();
-      cardApi.deleteCard(this.id);
+      this.deleteCard();
+    } else if (e.target.classList.contains("flipBtn")) {
+      this.card.classList.toggle("flipping");
     }
   };
 }

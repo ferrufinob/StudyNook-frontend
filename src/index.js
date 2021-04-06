@@ -15,12 +15,6 @@ deckApi.getAllDecks();
 cardApi.getAllCards();
 Card.addEventListeners();
 
-cardContainer.addEventListener("click", (e) => {
-  if (e.target.classList.contains("flipBtn")) {
-    document.querySelector(".card").classList.toggle("flipping");
-  }
-});
-
 searchContainer.addEventListener("keyup", (e) => {
   const string = e.target.value.toLowerCase();
   if (string) {
