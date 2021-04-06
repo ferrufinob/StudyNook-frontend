@@ -33,6 +33,7 @@ header {
 }
 
 /* footer */
+
 footer {
   justify-content: center;
   text-align: center;
@@ -48,6 +49,7 @@ footer {
 }
 
 /* error display */
+
 .error {
   width: 50%;
   font-size: 1.9em;
@@ -186,6 +188,7 @@ h1 {
 }
 
 /* Card flip event triggered */
+
 .card.flipping {
   transform: rotateY(180deg);
 }
@@ -226,7 +229,7 @@ h1 {
   border: 1px solid gray;
   margin: auto;
   border-radius: 5px;
-  width: 50%;
+  width: 60%;
   padding: 20px;
   margin-top: 15px;
   background-color: #507782;
@@ -256,6 +259,7 @@ input[type="submit"] {
 }
 
 /* card form textarea */
+
 #backInput,
 #frontInput {
   border: 1px solid #c6ad8f;
@@ -286,26 +290,6 @@ input[type="submit"] {
 .fas {
   color: #443f3c;
 }
-
-/* Edit Card Form */
-/* 
-#card-edit-form {
-  width: fit-content;
-  height: fit-content;
-  margin: auto;
-  margin-top: 70px;
-}
-
-#card-edit-form textarea {
-  background-color: #fff;
-  color: #394867;
-  border: 1px solid #c6ad8f;
-  outline: none;
-  border-radius: 5px;
-  width: 348px;
-  height: 80px;
-  font-size: 1.3rem;
-} */
 
 /* Responsiveness*/
 

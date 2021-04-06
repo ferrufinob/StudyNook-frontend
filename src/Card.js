@@ -20,7 +20,7 @@ class Card {
 
   renderHTML() {
     this.card.innerHTML = `
-    <button class="deleteBtn" data-id="${this.id}">X</button>
+    <button class="deleteBtn fas fa-times" data-id="${this.id}"></button>
     <div class="cardFront">
     <button class="flipBtn">FLIP</button>
     <h2>${this.front}</h2>
@@ -40,7 +40,7 @@ class Card {
   }
 
   static backBtn() {
-    searchContainer.style.display = "block";
+    searchContainer.style.display = "inline";
     cardForm.reset();
     cardContainer.innerHTML = "";
     document.querySelector("#deck_id").remove();
