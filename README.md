@@ -9,9 +9,9 @@ StudyNook provides users with 4 deck categories to add flashcards to.
 - [x] can delete flashcard
 - [x] search bar is available to fliter through question and answers.
 
-![app](app.gif)
+[Backend Repo](https://github.com/ferrufinob/StudyNook-backend.git)
 
-[Backend Repo]("https://github.com/ferrufinob/StudyNook-backend")
+![app](app.gif)
 
 ## Installation
 
