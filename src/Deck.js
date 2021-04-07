@@ -27,9 +27,7 @@ class Deck {
   }
 
   showCards = () => {
-    searchContainer.style.display = "none";
-    cardContainer.innerHTML = "";
-    deckContainer.style.display = "none";
+    this.clearDeckContainer();
     cardContainer.style.display = "flex";
     addCardDiv.style.display = "block";
     addCardBtn.style.display = "inline";
@@ -38,5 +36,11 @@ class Deck {
     this.cards().map((card) => {
       card.attachToDom();
     });
+  };
+
+  clearDeckContainer = () => {
+    searchContainer.style.display = "none";
+    cardContainer.innerHTML = "";
+    deckContainer.style.display = "none";
   };
 }

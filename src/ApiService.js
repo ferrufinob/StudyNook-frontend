@@ -28,22 +28,22 @@ class ApiService {
     const front = document.querySelector("#frontInput").value;
     const back = document.querySelector("#backInput").value;
 
-    let configObj = {
+    let cardInfo = {
       front,
       back,
       deck_id,
     };
 
-    let configCard = {
+    let configObj = {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
         Accept: "application/json",
       },
-      body: JSON.stringify(configObj),
+      body: JSON.stringify(cardInfo),
     };
 
-    fetch(this.url, configCard)
+    fetch(this.url, configObj)
       .then((res) => res.json())
       .then((card) => {
         if (card.errors) {

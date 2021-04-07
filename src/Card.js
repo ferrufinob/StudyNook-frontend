@@ -43,8 +43,13 @@ class Card {
     cardForm.addEventListener("submit", cardApi.createCard);
   }
 
-  static backBtn() {
+  static backBtn = () => {
+    this.clearCardContainer();
     searchContainer.style.display = "inline";
+    deckContainer.style.display = "flex";
+  };
+
+  static clearCardContainer = () => {
     cardForm.reset();
     cardContainer.innerHTML = "";
     document.querySelector("#deck_id").remove();
@@ -52,8 +57,7 @@ class Card {
     addCardDiv.style.display = "none";
     addCardBtn.style.display = "none";
     backBtn.style.display = "none";
-    deckContainer.style.display = "flex";
-  }
+  };
 
   static cardFormToggler(e) {
     let state = formContainer.style.display;

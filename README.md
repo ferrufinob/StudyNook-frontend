@@ -4,7 +4,7 @@ StudyNook provides users with 4 deck categories to add flashcards to.
 
 ## Current Functionality
 
-- [x] can organize their flashcards by deck categories provided.
+- [x] can organize and create their flashcards by deck categories provided.
 - [x] can be flipped to view answer.
 - [x] can delete flashcard
 - [x] search bar is available to filter through question and answers.
