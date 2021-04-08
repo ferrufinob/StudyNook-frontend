@@ -1,7 +1,7 @@
 "use strict";
 class Card {
   static all = [];
-  constructor({ id, front, back, deck_id, deck_name }) {
+  constructor({ id, front, back, deck_id }) {
     this.front = front;
     this.back = back;
     this.id = id;
@@ -9,8 +9,12 @@ class Card {
     this.card = document.createElement("div");
     this.card.classList.add("card");
     this.card.id = `card-${this.id}`;
-    this.card.dataset.id = `deck-${this.deck_id}`;
+    this.card.dataset.id = this.id;
     this.constructor.all.push(this);
+  }
+
+  static findById(id) {
+    return Card.all.find((card) => card.id == id);
   }
 
   attachToDom() {
@@ -23,7 +27,8 @@ class Card {
     this.card.insertAdjacentHTML(
       "beforeend",
       `
-    <button class="deleteBtn fas fa-times" data-id="${this.id}"></button>
+    <button class="deleteBtn" data-id="${this.id}">DELETE</button>
+    <button class="editBtn" data-id="${this.id}">EDIT</button>
     <div class="cardFront">
     <button class="flipBtn">FLIP</button>
     <h2>${this.front}</h2>
@@ -88,6 +93,32 @@ class Card {
       this.deleteCard();
     } else if (e.target.classList.contains("flipBtn")) {
       this.card.classList.toggle("flipping");
+    } else if (e.target.innerText === "EDIT") {
+      this.createEditFields(e.target);
+    } else if (e.target.innerText === "SAVE") {
+      const cardId = e.target.dataset.id;
+      cardApi.patchCard(cardId);
     }
+  };
+
+  createEditFields = (editBtn) => {
+    const card = editBtn.parentElement;
+    const front = card.querySelector(".cardFront h2").innerText;
+    const back = card.querySelector(".cardBack p").innerText;
+    this.card.innerHTML = `
+    <div class="update-form">
+    <label for="front">Question</label>
+    <textarea name="front" class="update-front-${this.id}" value="${front}">${front}</textarea>
+    <label for="back">Answer</label>
+    <textarea name="back" class="update-back-${this.id}" value="${back}">${back}</textarea>
+    <button class="saveBtn" data-id="${this.id}">SAVE</button>
+    </div>
+    `;
+  };
+
+  renderUpdatedCard = ({ front, back }) => {
+    this.front = front;
+    this.back = back;
+    this.renderHTML();
   };
 }
