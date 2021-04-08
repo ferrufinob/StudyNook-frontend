@@ -1,6 +1,6 @@
 # StudyNook
 
-StudyNook provides users with 4 deck categories to add flashcards to.
+StudyNook provides users a place to organize and study developer flashcards.
 
 ## Current Features
 
