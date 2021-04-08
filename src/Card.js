@@ -29,7 +29,7 @@ class Card {
       `
     <button class="deleteBtn" data-id="${this.id}">DELETE</button>
     <button class="editBtn" data-id="${this.id}">EDIT</button>
-    <div class="cardFront">
+    <div id="deck-${this.deck_id}" class="cardFront">
     <button class="flipBtn">FLIP</button>
     <h2>${this.front}</h2>
     </div>

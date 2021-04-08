@@ -295,7 +295,7 @@ input[type="submit"] {
 /* Update Form */
 .update-form textarea {
   width: 90%;
-  height: 60px;
+  height: 40%;
 }
 
 .update-form {

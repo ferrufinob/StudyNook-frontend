@@ -10,8 +10,6 @@ const addCardDiv = document.querySelector(".addCardDiv");
 const addCardBtn = document.querySelector(".addCardBtn");
 const backBtn = document.querySelector(".viewDecksBtn");
 const searchContainer = document.querySelector(".searchBar");
-const frontInput = document.querySelector("#frontInput");
-const backInput = document.querySelector("#backInput");
 
 deckApi.getAllDecks();
 cardApi.getAllCards();
