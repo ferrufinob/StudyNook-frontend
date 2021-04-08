@@ -2,12 +2,12 @@
 
 StudyNook provides users with 4 deck categories to add flashcards to.
 
-## Current Functionality
+## Current Features
 
-- [x] can organize and create their flashcards by deck categories provided.
-- [x] can be flipped to view answer.
-- [x] can delete flashcard
-- [x] search bar is available to filter through question and answers.
+- [x] organize and create flashcards by deck categories provided.
+- [x] card flip
+- [x] delete flashcard
+- [x] search bar filters through questions and answers
 
 ![last commit](https://img.shields.io/github/last-commit/ferrufinob/StudyNook-frontend)
 
