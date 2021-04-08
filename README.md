@@ -14,7 +14,7 @@ StudyNook provides users with 4 deck categories to add flashcards to.
 
 [Backend Repo](https://github.com/ferrufinob/StudyNook-backend.git)
 
-![app](app.gif)
+![app](app_demo.gif)
 
 ## Installation
 

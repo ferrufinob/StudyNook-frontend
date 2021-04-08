@@ -216,6 +216,9 @@ h1 {
   transform: rotateY(180deg);
   background: #f9f3f3;
   padding: 12px;
+  /* card shows scrollbar if text overflows div */
+  overflow-x: hidden;
+  overflow-y: auto;
 }
 
 /* Card Form */
