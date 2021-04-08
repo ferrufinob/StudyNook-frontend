@@ -20,6 +20,7 @@ class Card {
   attachToDom() {
     cardContainer.append(this.renderHTML());
     this.card.addEventListener("click", this.handleCardClicks);
+    this.card.addEventListener("submit", this.submitEditForm);
   }
 
   renderHTML() {
@@ -27,8 +28,8 @@ class Card {
     this.card.insertAdjacentHTML(
       "beforeend",
       `
-    <button class="deleteBtn" data-id="${this.id}">DELETE</button>
-    <button class="editBtn" data-id="${this.id}">EDIT</button>
+    <button class="deleteBtn fas fa-times" data-id="${this.id}"></button>
+    <button class="editBtn fas fa-edit" data-id="${this.id}"></button>
     <div id="deck-${this.deck_id}" class="cardFront">
     <button class="flipBtn">FLIP</button>
     <h2>${this.front}</h2>
@@ -93,26 +94,23 @@ class Card {
       this.deleteCard();
     } else if (e.target.classList.contains("flipBtn")) {
       this.card.classList.toggle("flipping");
-    } else if (e.target.innerText === "EDIT") {
+    } else if (e.target.classList.contains("editBtn")) {
       this.createEditFields(e.target);
-    } else if (e.target.innerText === "SAVE") {
-      const cardId = e.target.dataset.id;
-      cardApi.patchCard(cardId);
     }
   };
 
   createEditFields = (editBtn) => {
-    const card = editBtn.parentElement;
+    const card = editBtn.closest(".card");
     const front = card.querySelector(".cardFront h2").innerText;
     const back = card.querySelector(".cardBack p").innerText;
     this.card.innerHTML = `
-    <div class="update-form">
+    <form class="update-form" data-id="${this.id}">
     <label for="front">Question</label>
     <textarea name="front" class="update-front-${this.id}" value="${front}">${front}</textarea>
     <label for="back">Answer</label>
     <textarea name="back" class="update-back-${this.id}" value="${back}">${back}</textarea>
-    <button class="saveBtn" data-id="${this.id}">SAVE</button>
-    </div>
+    <input type="submit" name="submit" value="SAVE" class="saveBtn" data-id="${this.id}">
+    <form>
     `;
   };
 
@@ -120,5 +118,11 @@ class Card {
     this.front = front;
     this.back = back;
     this.renderHTML();
+  };
+
+  submitEditForm = (e) => {
+    e.preventDefault();
+    const cardId = e.target.dataset.id;
+    cardApi.patchCard(cardId);
   };
 }

@@ -278,7 +278,7 @@ input[type="submit"] {
 
 .editBtn,
 .deleteBtn {
-  font-size: 0.8em;
+  font-size: 1.2em;
   background: #edeef7;
   color: #443f3c;
   outline: none;
@@ -305,7 +305,7 @@ input[type="submit"] {
   text-align: center;
 }
 
-.far {
+.fas {
   color: #443f3c;
 }
 
