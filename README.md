@@ -40,7 +40,6 @@ open index.html
 ### Future Features
 
 - [ ] dark mode
-- [ ] more precise search bar
 - [ ] user model
 - [ ] user can create their own decks
 - [ ] user can bookmark other users decks
