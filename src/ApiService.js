@@ -105,6 +105,5 @@ class ApiService {
     setTimeout(function () {
       error.parentNode.removeChild(error);
     }, duration);
-    addCardDiv.appendChild(error);
   }
 }
