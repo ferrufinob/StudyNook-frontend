@@ -16,6 +16,11 @@ StudyNook provides users a place to organize and study developer flashcards.
 
 ![app](app_demo.gif)
 
+## Built with
+
+- Vanilla JavaScript
+- Rails 6 API
+
 ## Installation
 
 ### Backend

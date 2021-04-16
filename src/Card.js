@@ -8,7 +8,6 @@ class Card {
     this.deck_id = deck_id;
     this.card = document.createElement("div");
     this.card.classList.add("card");
-    this.card.id = `card-${this.id}`;
     this.card.dataset.id = this.id;
     this.constructor.all.push(this);
   }
