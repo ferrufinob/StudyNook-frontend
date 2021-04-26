@@ -98,12 +98,12 @@ class ApiService {
   };
 
   displayMessage(message, duration) {
-    const error = document.createElement("div");
-    error.classList.add("error");
-    error.innerText = `${message}`;
-    addCardDiv.appendChild(error);
+    const msg = document.createElement("div");
+    msg.classList.add("msg");
+    msg.innerText = `${message}`;
+    addCardDiv.appendChild(msg);
     setTimeout(function () {
-      error.parentNode.removeChild(error);
+      msg.parentNode.removeChild(msg);
     }, duration);
   }
 }

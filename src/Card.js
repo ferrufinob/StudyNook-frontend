@@ -64,7 +64,7 @@ class Card {
     backBtn.style.display = "none";
   };
 
-  static cardFormToggler(e) {
+  static cardFormToggler() {
     let state = formContainer.style.display;
 
     if (state === "block") {

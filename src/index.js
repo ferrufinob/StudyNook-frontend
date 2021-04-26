@@ -15,6 +15,7 @@ deckApi.getAllDecks();
 cardApi.getAllCards();
 Card.addEventListeners();
 
+
 searchContainer.addEventListener("keyup", (e) => {
   const string = e.target.value.toLowerCase();
   if (string) {

@@ -50,7 +50,7 @@ footer {
 
 /* error display */
 
-.error {
+.msg {
   width: 50%;
   font-size: 1.9em;
   margin: auto;
@@ -74,6 +74,12 @@ h1 {
 .cardFront h2 {
   font-size: 1.8em;
   margin-left: 10px;
+}
+
+.addCardDiv h2 {
+  /* color: #443f3c; */
+  background: url("http://www.autodatz.com/wp-content/uploads/2017/05/Old-Car-Wallpapers-Hd-36-with-Old-Car-Wallpapers-Hd.jpg");
+  font-size: 2em;
 }
 
 .deck h3 {
@@ -141,7 +147,8 @@ h1 {
 
 .deck:hover {
   transform: scale(1.1);
-  box-shadow: 0px 0px 5px #e7e6e1;
+  box-shadow: 0px 0px 10px #364547;
+  cursor: pointer;
 }
 
 /*Cards Display*/
