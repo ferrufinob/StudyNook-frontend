@@ -42,13 +42,6 @@ git clone
 open index.html
 ```
 
-### Future Features
-
-- [ ] dark mode
-- [ ] user model
-- [ ] user can create their own decks
-- [ ] user can bookmark other users decks
-
 ## Contributing
 
 Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
