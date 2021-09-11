@@ -1,71 +1,80 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="css/styles.css" />
 
-    <!-- Google Fonts -->
-    <link rel="preconnect" href="https://fonts.gstatic.com" />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500&display=swap"
-      rel="stylesheet"
-    />
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="css/styles.css" />
 
-    <!-- Font Awesome -->
-    <script
-      src="https://kit.fontawesome.com/8e754e2232.js"
-      crossorigin="anonymous"
-    ></script>
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.gstatic.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500&display=swap" rel="stylesheet" />
 
-    <title>StudyNook</title>
-  </head>
+  <!-- Font Awesome -->
+  <script src="https://kit.fontawesome.com/8e754e2232.js" crossorigin="anonymous"></script>
 
-    <header>
-      <div class="header"><h1>StudyNook</h1></div>
-      <div class="subheader"><p>Flash Cards for Developers</p></div>  
-    </header>
-    <div class="mainContainer">
-      <!-- Search Bar -->
-      <div class="searchContainer">
-          <input type="text" name="searchBar" class="searchBar" placeholder="🔎">
-        </div>
-      <!-- Add Card BTN -->
-      <div style="display: none" class="addCardDiv">
-        <button style="display: none" class="viewDecksBtn">
-          BACK TO DECKS
-        </button>
-        <button style="display: none" class="addCardBtn">ADD CARD</button>
-      </div>
-      <!-- Card Form -->
-      <div style="display: none;" class="formContainer">
-        <form id="cardForm" action="">
-          <label for="front">Question</label> <br />
-          <br />
-          <textarea name="front" id="frontInput"></textarea> <br />
-          <br />
-          <label for="back">Answer</label> <br />
-          <br />
-          <textarea name="back" id="backInput"></textarea> <br />
-          <input id="submit" type="submit" value="CREATE" />
-        </form>
-      </div>
-      <!-- All Decks Display -->
-      <div id="deckContainer">
-      </div>
-      <!-- All Cards Display -->
-      <div id="cardContainer">
-      </div>
-    </div>
-    <div><footer>&copy; 2021 StudyNook</footer></div>
-    
-    
+  <title>StudyNook</title>
+</head>
 
-    <!-- JavaScript -->
-    <script type="text/javascript" src="src/Deck.js"></script>
-    <script type="text/javascript" src="src/Card.js"></script>
-    <script type="text/javascript" src="src/ApiService.js"></script>
-    <script defer type="text/javascript" src="src/index.js"></script>
-  </body>
+<header>
+  <div class="header">
+    <h1>StudyNook</h1>
+  </div>
+  <div class="subheader">
+    <p>Flash Cards for Developers</p>
+  </div>
+</header>
+<div class="mainContainer">
+  <!-- Search Bar -->
+  <div class="searchContainer">
+    <input type="text" name="searchBar" class="searchBar" placeholder="🔎">
+  </div>
+  <!-- Add Card BTN -->
+  <div style="display: none" class="addCardDiv">
+    <button style="display: none" class="viewDecksBtn">
+      BACK TO DECKS
+    </button>
+    <button style="display: none" class="addCardBtn">ADD CARD</button>
+  </div>
+  <!-- Card Form -->
+  <div style="display: none;" class="formContainer">
+    <form id="cardForm" action="">
+      <label for="front">Question</label> <br />
+      <br />
+      <textarea name="front" id="frontInput"></textarea> <br />
+      <br />
+      <label for="back">Answer</label> <br />
+      <br />
+      <textarea name="back" id="backInput"></textarea> <br />
+      <input id="submit" type="submit" value="CREATE" />
+    </form>
+  </div>
+  <!-- All Decks Display -->
+  <div class="deckFormContainer">
+    <form id="deckForm" action="">
+      <label for="name">Name</label>
+      <input type="text" name="name" id="">
+      <input type="submit" value="Save Deck">
+    </form>
+  </div>
+  <div id="deckContainer">
+  </div>
+  <!-- All Cards Display -->
+  <div id="cardContainer">
+  </div>
+</div>
+<div>
+  <footer>&copy; 2021 StudyNook</footer>
+</div>
+
+
+
+<!-- JavaScript -->
+<script type="text/javascript" src="src/Deck.js"></script>
+<script type="text/javascript" src="src/Card.js"></script>
+<script type="text/javascript" src="src/ApiService.js"></script>
+<script defer type="text/javascript" src="src/index.js"></script>
+</body>
+
 </html>
