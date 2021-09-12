@@ -58,19 +58,19 @@ class Card {
     cardForm.reset();
     cardContainer.innerHTML = "";
     document.querySelector("#deck_id").remove();
-    formContainer.style.display = "none";
+    cardFormContainer.style.display = "none";
     addCardDiv.style.display = "none";
     addCardBtn.style.display = "none";
     backBtn.style.display = "none";
   };
 
   static cardFormToggler() {
-    let state = formContainer.style.display;
+    let state = cardFormContainer.style.display;
 
     if (state === "block") {
-      formContainer.style.display = "none";
+      cardFormContainer.style.display = "none";
     } else {
-      formContainer.style.display = "block";
+      cardFormContainer.style.display = "block";
     }
   }
 

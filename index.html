@@ -38,7 +38,7 @@
     <button style="display: none" class="addCardBtn">ADD CARD</button>
   </div>
   <!-- Card Form -->
-  <div style="display: none;" class="formContainer">
+  <div style="display: none;" class="cardFormContainer">
     <form id="cardForm" action="">
       <label for="front">Question</label> <br />
       <br />
@@ -50,14 +50,19 @@
       <input id="submit" type="submit" value="CREATE" />
     </form>
   </div>
-  <!-- All Decks Display -->
+   
+  <!-- Deck Form -->
   <div class="deckFormContainer">
     <form id="deckForm" action="">
       <label for="name">Name</label>
+      <br>
       <input type="text" name="name" id="">
+      <br>
       <input type="submit" value="Save Deck">
     </form>
   </div>
+
+  <!-- All Decks Display -->
   <div id="deckContainer">
   </div>
   <!-- All Cards Display -->
