@@ -22,6 +22,10 @@ class Deck {
     return this.decks;
   }
 
+  static addEventListeners = () => {
+    deckForm.addEventListener("submit", deckApi.createDeck);
+  };
+
   cards() {
     return Card.all.filter((card) => card.deck_id == this.id);
   }

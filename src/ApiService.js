@@ -14,7 +14,8 @@ class ApiService {
       });
   };
 
-  createDeck = () => {
+  createDeck = (e) => {
+    e.preventDefault();
     const name = document.querySelector("#deckName").value;
     let deckInfo = {
       name,
