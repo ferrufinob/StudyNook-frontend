@@ -4,7 +4,8 @@ StudyNook provides users a place to organize and study developer flashcards.
 
 ## Current Features
 
-- [x] organize and create flashcards by deck categories provided.
+- [x] full CRUD for cards
+- [x] create deck to keep cards organized by category
 - [x] edit flashcard
 - [x] delete flashcard
 - [x] search bar filters through questions and answers
