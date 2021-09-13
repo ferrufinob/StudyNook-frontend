@@ -46,5 +46,6 @@ class Deck {
     searchContainer.style.display = "none";
     cardContainer.innerHTML = "";
     deckContainer.style.display = "none";
+    deckFormContainer.style.display = "none";
   };
 }

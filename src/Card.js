@@ -52,6 +52,7 @@ class Card {
     this.clearCardContainer();
     searchContainer.style.display = "inline";
     deckContainer.style.display = "flex";
+    deckFormContainer.style.display = "block";
   };
 
   static clearCardContainer = () => {
