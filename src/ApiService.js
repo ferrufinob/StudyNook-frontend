@@ -14,6 +14,34 @@ class ApiService {
       });
   };
 
+  createDeck = () => {
+    const name = document.querySelector("#deckName").value;
+    let deckInfo = {
+      name,
+    };
+    let configObj = {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        Accept: "application/json",
+      },
+      body: JSON.stringify(deckInfo),
+    };
+
+    fetch(this.url, configObj)
+      .then((res) => res.json())
+      .then((deck) => {
+        if (deck.errors) {
+          this.displayMessage(deck.errors, 2000);
+        } else {
+          let newDeck = new Deck({ id: deck.data.id, ...deck.data.attributes });
+          newDeck.attachToDom();
+          deckForm.reset();
+        }
+      })
+      .catch((error) => this.displayMessage(error, 2000));
+  };
+
   getAllCards = () => {
     fetch(this.url)
       .then((res) => res.json())

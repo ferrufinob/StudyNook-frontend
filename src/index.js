@@ -6,6 +6,7 @@ const deckApi = new ApiService("http://localhost:3000/api/v1/decks");
 const cardApi = new ApiService("http://localhost:3000/api/v1/cards");
 const cardForm = document.querySelector("#cardForm");
 const cardFormContainer = document.querySelector(".cardFormContainer");
+const deckFormContainer = document.querySelector(".deckFormContainer");
 const addCardDiv = document.querySelector(".addCardDiv");
 const addCardBtn = document.querySelector(".addCardBtn");
 const backBtn = document.querySelector(".viewDecksBtn");
