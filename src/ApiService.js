@@ -81,7 +81,7 @@ class ApiService {
           let newCard = new Card({ id: card.data.id, ...card.data.attributes });
           newCard.attachToDom();
           cardForm.reset();
-          formContainer.style.display = "none";
+          cardFormContainer.style.display = "none";
         }
       })
       .catch((error) => this.displayMessage(error, 2000));

@@ -12,14 +12,18 @@ class Deck {
 
   attachToDom() {
     deckContainer.append(this.renderHTML());
+    const deleteButton = document.createElement("button");
+    deleteButton.id = this.id;
+    deleteButton.classList.add("deleteDeckBtn");
+    deleteButton.innerHTML = "X";
+    this.decks.appendChild(deleteButton);
+    deleteButton.addEventListener("click", this.handleDeckClicks);
     this.decks.addEventListener("click", this.showCards);
-    this.decks.addEventListener("click", this.handleDeckClicks);
   }
 
   renderHTML() {
     this.decks.innerHTML = `
         <h3>${this.name}</h3>
-        <button class="deleteDeckBtn data-id="${this.id}">x</button>
         `;
     return this.decks;
   }
@@ -59,6 +63,7 @@ class Deck {
 
   handleDeckClicks = (e) => {
     if (e.target.classList.contains("deleteDeckBtn")) {
+      e.stopPropagation();
       this.deleteDeck();
     }
   };
