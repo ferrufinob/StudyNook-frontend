@@ -136,6 +136,7 @@ h1 {
   padding: 0 10px;
   margin-top: 20px;
   margin-left: 60px;
+  position: relative;
   text-align: center;
   word-wrap: break-word;
   border-radius: 15px;
@@ -306,7 +307,7 @@ input[type="submit"] {
   height: 200px;
 }
 
-/* Card Edit & Delete Buttons */
+/* Card & Deck --> Edit & Delete Buttons */
 
 .editCardBtn,
 .deleteCardBtn {
@@ -322,6 +323,21 @@ input[type="submit"] {
   transform: translateZ(1px);
   backface-visibility: hidden;
   -webkit-backface-visibility: hidden;
+}
+
+.deleteDeckBtn {
+  position: absolute;
+  margin-top: 1px;
+  margin-right: 2px;
+  top: 0;
+  right: 0;
+  outline: none;
+  background: none;
+  color: #fff;
+}
+
+.deleteDeckBtn:hover {
+  background-color: #f9c4aa;
 }
 
 /* Update Form */
