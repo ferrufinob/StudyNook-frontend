@@ -328,6 +328,12 @@ input[type="submit"] {
   -webkit-backface-visibility: hidden;
 }
 
+.editCardBtn:hover,
+.deleteCardBtn:hover,
+.flipBtn:hover {
+  background-color: #f9c4aa;
+}
+
 .deleteDeckBtn {
   position: absolute;
   margin-top: 5px;
