@@ -126,6 +126,14 @@ class ApiService {
       .then((card) => this.displayMessage(card.message, 2000));
   };
 
+  deleteDeck = (id) => {
+    fetch(`${this.url}/${id}`, {
+      method: "DELETE",
+    })
+      .then((res) => res.json())
+      .then((deck) => this.displayMessage(deck.message, 2000));
+  };
+
   displayMessage(message, duration) {
     const msg = document.createElement("div");
     msg.classList.add("msg");

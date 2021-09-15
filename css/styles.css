@@ -308,8 +308,8 @@ input[type="submit"] {
 
 /* Card Edit & Delete Buttons */
 
-.editBtn,
-.deleteBtn {
+.editCardBtn,
+.deleteCardBtn {
   font-size: 1.2em;
   background: #edeef7;
   color: #443f3c;

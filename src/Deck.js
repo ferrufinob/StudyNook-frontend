@@ -13,11 +13,13 @@ class Deck {
   attachToDom() {
     deckContainer.append(this.renderHTML());
     this.decks.addEventListener("click", this.showCards);
+    this.decks.addEventListener("click", this.handleDeckClicks);
   }
 
   renderHTML() {
     this.decks.innerHTML = `
         <h3>${this.name}</h3>
+        <button class="deleteDeckBtn data-id="${this.id}">x</button>
         `;
     return this.decks;
   }
@@ -47,5 +49,17 @@ class Deck {
     cardContainer.innerHTML = "";
     deckContainer.style.display = "none";
     deckFormContainer.style.display = "none";
+  };
+
+  deleteDeck = () => {
+    this.constructor.all = this.constructor.all.filter((deck) => deck != this);
+    this.decks.remove();
+    deckApi.deleteDeck(this.id);
+  };
+
+  handleDeckClicks = (e) => {
+    if (e.target.classList.contains("deleteDeckBtn")) {
+      this.deleteDeck();
+    }
   };
 }

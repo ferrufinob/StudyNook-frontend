@@ -27,8 +27,8 @@ class Card {
     this.card.insertAdjacentHTML(
       "beforeend",
       `
-    <button class="deleteBtn fas fa-times" data-id="${this.id}"></button>
-    <button class="editBtn fas fa-edit" data-id="${this.id}"></button>
+    <button class="deleteCardBtn fas fa-times" data-id="${this.id}"></button>
+    <button class="editCardBtn fas fa-edit" data-id="${this.id}"></button>
     <div id="deck-${this.deck_id}" class="cardFront">
     <button class="flipBtn">FLIP</button>
     <h2>${this.front}</h2>
@@ -90,11 +90,11 @@ class Card {
   };
 
   handleCardClicks = (e) => {
-    if (e.target.classList.contains("deleteBtn")) {
+    if (e.target.classList.contains("deleteCardBtn")) {
       this.deleteCard();
     } else if (e.target.classList.contains("flipBtn")) {
       this.card.classList.toggle("flipping");
-    } else if (e.target.classList.contains("editBtn")) {
+    } else if (e.target.classList.contains("editCardBtn")) {
       this.createEditFields(e.target);
     }
   };
