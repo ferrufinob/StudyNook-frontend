@@ -146,9 +146,7 @@ h1 {
 }
 
 .deck:hover {
-  background-color: transparent;
   border: 3px solid #fff;
-  /* transform: scale(1); */
   cursor: pointer;
 }
 
@@ -177,7 +175,6 @@ h1 {
   transform-style: preserve-3d;
   transition: transform 1s;
   border-radius: 6px;
-  cursor: pointer;
   background-color: #f9f3f3;
 }
 
@@ -332,6 +329,7 @@ input[type="submit"] {
 .deleteCardBtn:hover,
 .flipBtn:hover {
   background-color: #f9c4aa;
+  cursor: pointer;
 }
 
 .deleteDeckBtn {
