@@ -15,7 +15,7 @@ StudyNook provides users a place to organize and study developer flashcards.
 
 [Backend Repo](https://github.com/ferrufinob/StudyNook-backend.git)
 
-![app](app_demo.gif)
+![app](demo.gif)
 
 ## Built with
 
