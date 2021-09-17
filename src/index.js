@@ -2,8 +2,12 @@
 
 const deckContainer = document.querySelector("#deckContainer");
 const cardContainer = document.querySelector("#cardContainer");
-const deckApi = new ApiService("http://localhost:3000/api/v1/decks");
-const cardApi = new ApiService("http://localhost:3000/api/v1/cards");
+const deckApi = new ApiService(
+  "https://studynook-flashcards.herokuapp.com/api/v1/decks"
+);
+const cardApi = new ApiService(
+  "https://studynook-flashcards.herokuapp.com/api/v1/cards"
+);
 const cardForm = document.querySelector("#cardForm");
 const deckForm = document.querySelector("#deckForm");
 const cardFormContainer = document.querySelector(".cardFormContainer");
