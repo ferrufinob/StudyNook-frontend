@@ -25,7 +25,7 @@ StudyNook provides users a place to organize and study developer flashcards.
 
 - Vanilla JavaScript
 - Rails 6 API
-- Postresql database
+- PostgreSQL database
 
 ## Installation
 
